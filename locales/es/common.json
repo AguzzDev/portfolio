@@ -1,0 +1,18 @@
+{
+  "loading":"Bienvenido a mi Portafolio",
+  "404": "Pagina no encontrada",
+  "back":"Volver",
+
+  "aboutme-greeting": "Hola",
+  "aboutme-greeting2": "Soy Agustín Ribotta,",
+  "aboutme-greeting3": "Desarrollador Web Argentino",
+
+  "project-title":"Proyectos",
+  "technologys": "Tecnologias",
+  "libraries": "Librerias",
+  "year": "Año",
+  "client": "Cliente",
+  "repo-web": "Repo & Web",
+
+  "contact-title":"Contacto"
+}

@@ -1,0 +1,18 @@
+{
+  "loading": "Welcome to my Portfolio",
+  "404": "Page not found",
+  "back":"Back",
+
+  "aboutme-greeting": "Hello there",
+  "aboutme-greeting2": "I'm Agustín Ribotta,",
+  "aboutme-greeting3": "Argentine Web Developer",
+
+  "project-title": "Projects",
+  "technologys": "Technologys",
+  "libraries": "Libraries",
+  "year": "Year",
+  "client": "Client",
+  "repo-web": "Repo & Web",
+
+  "contact-title": "Contact"
+}
