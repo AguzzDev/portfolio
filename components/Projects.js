@@ -36,7 +36,7 @@ export const Projects = ({ data }) => {
       <section className="pt-10 pb-20 flex flex-col-reverse lg:flex-row lg:w-screen">
         <div className="flex flex-col space-y-20 cursor-pointer lg:w-2/4">
           {data.map(({ title, image, slug }, i) => (
-            <Link key={i} href={`/${slug}`} locale={locale}>
+            <Link passHref key={i} href={`/${slug}`} locale={locale}>
               <motion.div
                 whileHover={{ x: "20px" }}
                 transition={{

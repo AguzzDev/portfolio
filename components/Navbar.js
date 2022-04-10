@@ -23,7 +23,7 @@ export const Navbar = () => {
     <nav className="fixed w-full top-0 z-50 bg-gray-200 dark:bg-black1 py-2">
       <div className="flex items-center justify-between max-w-6xl w-full mx-auto px-5 xl:px-0">
         <div className="text-black1 dark:text-white1 fill-current">
-          <Link href="/">
+          <Link passHref href="/">
             <a className="fill-current text-black1 dark:text-white1 ">
               <Logo className="scale-75 transform" />
             </a>
@@ -60,7 +60,7 @@ export const Navbar = () => {
             <Menu.Items className="absolute top-8 right-0 bg-gray-300 bg-opacity-40 dark:bg-black2 rounded-md flex flex-col space-y-2">
               {router.locales.map((option,i) => (
                 <button key={i} className="px-10 py-2">
-                  <Link href={router.asPath} locale={option}>
+                  <Link passHref href={router.asPath} locale={option}>
                     <h2 className="uppercase">{option}</h2>
                   </Link>
                 </button>

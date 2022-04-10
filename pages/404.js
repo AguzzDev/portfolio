@@ -12,7 +12,7 @@ const NoPage = () => {
       <div>
         <h2 className="text-white">{t("common:404")}</h2>
         <button>
-          <Link href={"/"}>{t("common:back")}</Link>
+          <Link passHref href={"/"}>{t("common:back")}</Link>
         </button>
       </div>
     </Layout>

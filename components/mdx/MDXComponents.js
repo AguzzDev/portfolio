@@ -103,7 +103,7 @@ export default {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 my-3 gap-y-5 md:gap-10">
           {imgs.map((img, i) => {
-            let [isOpen, setIsOpen] = useState(false)
+            const [isOpen, setIsOpen] = useState(false)
 
             return (
               <Fragment key={i}>
@@ -136,7 +136,7 @@ export default {
     </div>
   ),
   LinkTo: ({ to, name }) => (
-    <Link href={to}>
+    <Link passHref href={to}>
       <a target="_blank" className="font-mainBold gradient-text-1">
         {name}
       </a>
@@ -190,13 +190,17 @@ export default {
           </h2>
           <h2 className="font-main2"> {client}</h2>
           <div className="flex flex-col">
-            <a href={repo} className="font-main2" target="_blank">
-              Repo
-            </a>
+            <Link href={repo} passHref>
+              <a className="font-main2" target="_blank">
+                Repo
+              </a>
+            </Link>
             {website && (
-              <a href={website} className="font-main2" target="_blank">
+            <Link href={website} passHref>
+              <a className="font-main2" target="_blank">
                 Web
               </a>
+            </Link>
             )}
           </div>
         </div>

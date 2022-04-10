@@ -11,13 +11,13 @@ export const Footer = ({ t }) => {
       </h1>
 
       <div className="flex items-center space-x-5 mt-5">
-        <Link href="https://github.com/AguzzDev">
-          <a target="_blank">
+        <Link passHref href="https://github.com/AguzzDev">
+          <a rel="noreferrer" target="_blank">
             <GithubIcon className="transform scale-125 text-black dark:text-white fill-current" />
           </a>
         </Link>
-        <Link href="https://www.linkedin.com/in/agust%C3%ADn-ribotta-91851721b/">
-          <a target="_blank">
+        <Link passHref href="https://www.linkedin.com/in/agust%C3%ADn-ribotta-91851721b/">
+          <a rel="noreferrer" target="_blank">
             <LinkedinIcon className="transform text-black dark:text-white fill-current" />
           </a>
         </Link>

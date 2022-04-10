@@ -17,14 +17,14 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
         } mx-auto flex my-5 md:my-20`}
       >
         {prevProject && (
-          <Link href={prevProject}>
+          <Link passHref href={prevProject}>
             <button className="text-3xl sm:text-5xl md:text-6xl text-black dark:text-white">
               Prev project
             </button>
           </Link>
         )}
         {nextProject && (
-          <Link href={nextProject}>
+          <Link passHref href={nextProject}>
             <button className="text-3xl sm:text-5xl md:text-6xl text-black dark:text-white">
               Next project
             </button>
