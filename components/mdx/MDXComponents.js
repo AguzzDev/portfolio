@@ -89,52 +89,56 @@ export default {
       </div>
     )
   },
-  Galery: ({ imgs, alt }) => (
-    <div className="xl:mx-20">
-      {imgs.length === 1 ? (
-        <div
-          onClick={() => {
-            setIsOpen(true)
-          }}
-          className="max-h-[600px] relative cursor-pointer select-none mb-20"
-        >
-          <Image src={imgs[0]} layout="fill" alt={alt} />
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 my-3 gap-y-5 md:gap-10">
-          {imgs.map((img, i) => {
-            const [isOpen, setIsOpen] = useState(false)
+  Galery: ({ imgs, alt }) => {
+    const [isOpen, setIsOpen] = useState(false)
 
-            return (
-              <Fragment key={i}>
-                <div
-                  onClick={() => {
-                    setIsOpen(true)
-                  }}
-                  className={`${
-                    i == 0 || i == 3 || i == 4 ? "md:col-span-2" : ""
-                  } max-h-[600px] cursor-pointer select-none relative bg-red-500`}
-                >
-                  <img
-                    src={img}
+    return (
+      <div className="xl:mx-20">
+        {imgs.length === 1 ? (
+          <div
+            onClick={() => {
+              setIsOpen(true)
+            }}
+            className="max-h-[600px] relative cursor-pointer select-none mb-20"
+          >
+            <Image src={imgs[0]} layout="fill" alt={alt} />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 my-3 gap-y-5 md:gap-10">
+            {imgs.map((img, i) => {
+              const [isOpen, setIsOpen] = useState(false)
+
+              return (
+                <Fragment key={i}>
+                  <div
+                    onClick={() => {
+                      setIsOpen(true)
+                    }}
+                    className={`${
+                      i == 0 || i == 3 || i == 4 ? "md:col-span-2" : ""
+                    } max-h-[600px] cursor-pointer select-none relative bg-red-500`}
+                  >
+                    <img
+                      src={img}
+                      alt={alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <ModalGalery
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    img={img}
                     alt={alt}
-                    className="w-full h-full object-cover"
                   />
-                </div>
-
-                <ModalGalery
-                  isOpen={isOpen}
-                  setIsOpen={setIsOpen}
-                  img={img}
-                  alt={alt}
-                />
-              </Fragment>
-            )
-          })}
-        </div>
-      )}
-    </div>
-  ),
+                </Fragment>
+              )
+            })}
+          </div>
+        )}
+      </div>
+    )
+  },
   LinkTo: ({ to, name }) => (
     <Link passHref href={to}>
       <a target="_blank" className="font-mainBold gradient-text-1">
@@ -196,11 +200,11 @@ export default {
               </a>
             </Link>
             {website && (
-            <Link href={website} passHref>
-              <a rel="noreferrer" className="font-main2" target="_blank">
-                Web
-              </a>
-            </Link>
+              <Link href={website} passHref>
+                <a rel="noreferrer" className="font-main2" target="_blank">
+                  Web
+                </a>
+              </Link>
             )}
           </div>
         </div>
