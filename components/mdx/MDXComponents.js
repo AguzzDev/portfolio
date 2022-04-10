@@ -191,13 +191,13 @@ export default {
           <h2 className="font-main2"> {client}</h2>
           <div className="flex flex-col">
             <Link href={repo} passHref>
-              <a className="font-main2" target="_blank">
+              <a rel="noreferrer" className="font-main2" target="_blank">
                 Repo
               </a>
             </Link>
             {website && (
             <Link href={website} passHref>
-              <a className="font-main2" target="_blank">
+              <a rel="noreferrer" className="font-main2" target="_blank">
                 Web
               </a>
             </Link>
