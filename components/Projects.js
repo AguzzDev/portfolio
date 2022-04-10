@@ -33,8 +33,8 @@ export const Projects = ({ data }) => {
       <h1 className="text-2xl sm:text-4xl font-mainBold text-black dark:text-white">
         {t("common:project-title")}
       </h1>
-      <section className="pt-10 pb-20 flex flex-col-reverse lg:flex-row lg:w-screen">
-        <div className="flex flex-col space-y-20 cursor-pointer lg:w-2/4">
+      <section className="py-5 flex flex-col-reverse lg:flex-row lg:w-screen">
+        <div className="flex flex-col lg:w-2/4">
           {data.map(({ title, image, slug }, i) => (
             <Link passHref key={i} href={`/${slug}`} locale={locale}>
               <motion.div
@@ -48,7 +48,7 @@ export const Projects = ({ data }) => {
                   theme === "dark" ? "borderText" : "borderTextDark"
                 } ${
                   textHover === i && "text-black dark:text-white"
-                } select-none`}
+                } select-none my-10 cursor-pointer`}
                 onMouseEnter={() => handleChange({ image, i })}
                 onMouseLeave={() => setHover({ hover: false })}
               >

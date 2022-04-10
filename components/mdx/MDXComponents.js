@@ -116,13 +116,9 @@ export default {
                     }}
                     className={`${
                       i == 0 || i == 3 || i == 4 ? "md:col-span-2" : ""
-                    } max-h-[600px] cursor-pointer select-none relative bg-red-500`}
+                    } max-h-[600px] overflow-hidden cursor-pointer select-none relative`}
                   >
-                    <img
-                      src={img}
-                      alt={alt}
-                      className="w-full h-full object-cover"
-                    />
+                     <img src={img} alt={alt} />
                   </div>
 
                   <ModalGalery
