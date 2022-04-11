@@ -13,10 +13,10 @@ export const Layout = ({ children, title }) => {
     <>
       <Head>
         <title>{title}</title>
-        <meta property="og:title" content={`${title} - Portafolio}`} />
+        <meta property="og:title" content={`${title}`} />
         <meta
           name="description"
-          content={`${t("common:metadata")} Agustin Ribotta}`}
+          content={`${t("common:metadata")} Agustin Ribotta`}
         />
         <link rel="shortcut icon" href="/logo.png" />
         <meta
