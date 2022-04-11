@@ -3,14 +3,22 @@ import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 
 import { Navbar } from "./Navbar"
+import useTranslation from "next-translate/useTranslation"
 
 export const Layout = ({ children, title }) => {
   const router = useRouter()
-  
+  const { t } = useTranslation()
+
   return (
     <>
       <Head>
         <title>{title}</title>
+        <meta property="og:title" content={`${title} - Portafolio}`} />
+        <meta
+          name="description"
+          content={`${t("common:metadata")} Agustin Ribotta}`}
+        />
+        <link rel="shortcut icon" href="/Logo.png"></link>
       </Head>
 
       <Navbar />

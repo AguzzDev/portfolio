@@ -6,7 +6,7 @@ import "styles/globals.css"
 function MyApp({ Component, pageProps }) {
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="bg"/>
+      <div className="bg" />
       <DarkmodeProvider>
         <Component {...pageProps} />
       </DarkmodeProvider>

@@ -1,7 +1,9 @@
 {
+  "metadata": "Portfolio of",
+
   "loading": "Welcome to my Portfolio",
   "404": "Page not found",
-  "back":"Back",
+  "back": "Back",
 
   "aboutme-greeting": "Hello there",
   "aboutme-greeting2": "I'm Agustín Ribotta,",
