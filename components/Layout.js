@@ -13,12 +13,16 @@ export const Layout = ({ children, title }) => {
     <>
       <Head>
         <title>{title}</title>
+        <meta
+          name="google-site-verification"
+          content="dttk3MTRPjmgYRG8B_zkarma7RRwJ8dWyjHHIXxY2ck"
+        />
         <meta property="og:title" content={`${title} - Portafolio}`} />
         <meta
           name="description"
           content={`${t("common:metadata")} Agustin Ribotta}`}
         />
-        <link rel="shortcut icon" href="/Logo.png"></link>
+        <link rel="shortcut icon" href="/logo.png" />
       </Head>
 
       <Navbar />
