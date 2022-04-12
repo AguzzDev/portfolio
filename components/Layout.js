@@ -13,16 +13,35 @@ export const Layout = ({ children, title }) => {
     <>
       <Head>
         <title>{title}</title>
-        <meta property="og:title" content={`${title}`} />
+        <link rel="shortcut icon" href="/logo.png" />
         <meta
           name="description"
           content={`${t("common:metadata")} Agustin Ribotta`}
-        />
-        <link rel="shortcut icon" href="/logo.png" />
+        ></meta>
         <meta
-          name="google-site-verification"
-          content="dttk3MTRPjmgYRG8B_zkarma7RRwJ8dWyjHHIXxY2ck"
-        />
+          property="og:url"
+          content="https://www.agustin-ribotta.xyz"
+        ></meta>
+        <meta property="og:type" content="website"></meta>
+        <meta property="og:title" content="Portafolio"></meta>
+        <meta
+          property="og:description"
+          content={`${t("common:metadata")} Agustin Ribotta`}
+        ></meta>
+        <meta property="og:image" content="/logo.png"></meta>
+
+        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta property="twitter:domain" content="agustin-ribotta.xyz"></meta>
+        <meta
+          property="twitter:url"
+          content="https://www.agustin-ribotta.xyz"
+        ></meta>
+        <meta name="twitter:title" content="Portafolio"></meta>
+        <meta
+          name="twitter:description"
+          content={`${t("common:metadata")} Agustin Ribotta`}
+        ></meta>
+        <meta name="twitter:image" content="/logo.png"></meta>
       </Head>
 
       <Navbar />
