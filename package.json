@@ -2,9 +2,8 @@
   "name": "portfolio",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "dev": "next dev",
+    "build": "next build"
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
