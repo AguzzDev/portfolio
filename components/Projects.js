@@ -36,7 +36,7 @@ export const Projects = ({ data }) => {
       <section className="py-5 flex flex-col-reverse lg:flex-row lg:w-screen">
         <div className="flex flex-col lg:w-2/4">
           {data.map(({ title, image, slug }, i) => (
-            <Link passHref key={i} href={`/${slug}`} locale={locale}>
+            <Link passHref key={i} href={`/${slug}`} locale="en">
               <motion.div
                 whileHover={{ x: "20px" }}
                 transition={{
