@@ -1,5 +1,4 @@
-import { MDXRemote } from "next-mdx-remote"
-
+import { useEffect, useState } from "react"
 import { getFiles, getFileBySlug } from "lib/mdx"
 import { Layout } from "components/Layout"
 import MDXComponents from "components/mdx/MDXComponents"
@@ -13,6 +12,7 @@ import useTranslation from "next-translate/useTranslation"
 
 const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
   const { t } = useTranslation()
+  const [loading, setLoading] = useState(true)
 
   const Button = ({ icon, title, position, boolean }) => {
     return (
@@ -46,42 +46,50 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
     )
   }
 
+  useEffect(() => {
+    if (source && frontmatter && nextProject && prevProject) {
+      setLoading(false)
+    }
+  }, [source, frontmatter, nextProject, prevProject])
+
   return (
     <>
-      <Layout title={`${frontmatter.title} - Portafolio`}>
-        <MDXRemote components={MDXComponents} {...source} />
-        <div
-          id="buttons"
-          className="flex justify-between space-x-2 md:space-x-0 lg:space-x-3 h-[5rem] mx-auto my-5 md:my-10"
-        >
-          <Button
-            icon={ChevronLeftIcon}
-            title={t("common:prev-button")}
-            position="left"
-            boolean={prevProject ? true : false}
-          />
-          <div className="w-12 md:w-16 h-[.2rem] bg-black dark:bg-white rotate-[120deg] translate-y-8 rounded-md"></div>
-          <Button
-            icon={ChevronRightIcon}
-            title={t("common:next-button")}
-            position="right"
-            boolean={nextProject ? true : false}
-          />
-        </div>
-
-        <div className="sticky bottom-0 flex justify-center items-center">
-          <button
-            onClick={() => {
-              const selector = document.querySelector("#buttons")
-              setTimeout(() => {
-                selector.scrollIntoView({ behavior: "smooth" })
-              }, 200)
-            }}
+      {!loading && (
+        <Layout title={`${frontmatter.title} - Portafolio`}>
+          <MDXRemote components={MDXComponents} {...source} />
+          <div
+            id="buttons"
+            className="flex justify-between space-x-2 md:space-x-0 lg:space-x-3 h-[5rem] mx-auto my-5 md:my-10"
           >
-            <IconMd Icon={ChevronDownIcon} />
-          </button>
-        </div>
-      </Layout>
+            <Button
+              icon={ChevronLeftIcon}
+              title={t("common:prev-button")}
+              position="left"
+              boolean={prevProject ? true : false}
+            />
+            <div className="w-12 md:w-16 h-[.2rem] bg-black dark:bg-white rotate-[120deg] translate-y-8 rounded-md"></div>
+            <Button
+              icon={ChevronRightIcon}
+              title={t("common:next-button")}
+              position="right"
+              boolean={nextProject ? true : false}
+            />
+          </div>
+
+          <div className="sticky bottom-0 flex justify-center items-center">
+            <button
+              onClick={() => {
+                const selector = document.querySelector("#buttons")
+                setTimeout(() => {
+                  selector.scrollIntoView({ behavior: "smooth" })
+                }, 200)
+              }}
+            >
+              <IconMd Icon={ChevronDownIcon} />
+            </button>
+          </div>
+        </Layout>
+      )}
     </>
   )
 }
