@@ -49,7 +49,7 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
   }
 
   useEffect(() => {
-    if (source && frontmatter && nextProject && prevProject) {
+    if (source || frontmatter || nextProject || prevProject) {
       setLoading(false)
     }
   }, [source, frontmatter, nextProject, prevProject])
