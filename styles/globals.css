@@ -39,15 +39,15 @@
 
 @font-face {
   font-family: "main";
-  src: url("./fonts/Aeonik-Regular.woff");
+  src: url("./fonts/Aeonik-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "mainBold";
-  src: url("./fonts/Aeonik-Medium.woff");
+  src: url("./fonts/Aeonik-Medium.woff") format("woff");
 }
 @font-face {
   font-family: "main2";
-  src: url("./fonts/font2.woff");
+  src: url("./fonts/font2.woff") format("woff");
 }
 
 @tailwind base;
@@ -64,16 +64,26 @@
   h2,
   h3,
   h4,
-  h5,
   p,
-  a,
-  span {
+  a {
     @apply text-black dark:text-white;
+  }
+  h1 {
+    @apply text-2xl sm:text-4xl lg:text-6xl font-mainBold text-black dark:text-white;
+  }
+  h2 {
+    @apply text-lg md:text-xl text-black dark:text-white;
   }
   body::-webkit-scrollbar {
     @apply w-[10px];
   }
   body::-webkit-scrollbar-thumb {
     @apply bg-gray-600 rounded-full;
+  }
+  .gradient1 {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#9D51E1] via-[#9B63A4] to-[#B86C7D];
+  }
+  .border1 {
+    @apply bg-gray5 dark:bg-black2 border border-gray3 dark:border-gray1;
   }
 }

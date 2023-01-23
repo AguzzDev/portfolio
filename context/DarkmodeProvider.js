@@ -1,19 +1,16 @@
-import { parseCookies, setCookie } from "nookies"
+import { parseCookies, setCookie, destroyCookie } from "nookies"
 import { useEffect, useState } from "react"
 
 import DarkmodeContext from "./DarkmodeContext"
 
 const DarkmodeProvider = ({ children }) => {
   const { colorTheme } = parseCookies()
-  const [toogle, setToogle] = useState(false)
   const [theme, setTheme] = useState(null)
 
   const toogleDarkMode = () => {
-    setToogle(!toogle)
-
-    if (toogle) {
+    if (colorTheme === "light") {
       setCookie(null, "colorTheme", "dark")
-      document.documentElement.classList.add("dark")
+      document.documentElement.classList.remove("light")
       setTheme(document.documentElement.classList.value)
     } else {
       setCookie(null, "colorTheme", "light")
@@ -23,15 +20,15 @@ const DarkmodeProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    if (colorTheme === "dark") {
-      document.documentElement.classList.add("dark")
-      setTheme(document.documentElement.classList.value)
+    if (!colorTheme) {
+      setCookie(null, "colorTheme", "light")
     }
+    document.documentElement.classList.add(colorTheme)
     setTheme(document.documentElement.classList.value)
-  }, [])
+  }, [colorTheme])
 
   return (
-    <DarkmodeContext.Provider value={{ toogleDarkMode, theme }}>
+    <DarkmodeContext.Provider value={{ toogleDarkMode, theme:colorTheme }}>
       {children}
     </DarkmodeContext.Provider>
   )

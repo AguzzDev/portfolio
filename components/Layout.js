@@ -16,12 +16,12 @@ export const Layout = ({ children, title }) => {
       <Navbar />
       <motion.section
         initial={{ y: 60, opacity: 0 }}
-        animate={{ y: router.pathname === "/404" ? 100 : 15, opacity: 1 }}
+        animate={{ y: router.pathname === "/404" ? 100 : -25, opacity: 1 }}
         exit={{ y: 60, opacity: 0 }}
         transition={{ duration: 1 }}
         className={`${
           router.pathname === "/[slug]" ? "w-full" : "max-w-6xl"
-        } px-5 xl:px-0 flex flex-col relative mx-auto`}
+        } px-5 xl:px-0 flex flex-col mx-auto`}
       >
         {children}
       </motion.section>

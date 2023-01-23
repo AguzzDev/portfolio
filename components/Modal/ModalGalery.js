@@ -1,5 +1,6 @@
 import { Dialog } from "@headlessui/react"
 import { AnimatePresence, motion } from "framer-motion"
+import Image from "next/image"
 
 export const ModalGalery = ({ isOpen, setIsOpen, img, alt }) => {
   return (
@@ -18,9 +19,9 @@ export const ModalGalery = ({ isOpen, setIsOpen, img, alt }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: "100%" }}
               transition={{ duration: 1 }}
-              className="max-w-6xl max-h-[90vh] z-50 select-none bg-red-500"
+              className="w-[80vw] h-[80vh] z-50 select-none relative"
             >
-              <img src={img} alt={alt} />
+              <Image layout="fill" objectFit="contain" src={img} alt={alt} />
             </motion.div>
           </div>
         </Dialog>

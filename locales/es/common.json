@@ -16,5 +16,14 @@
   "client": "Cliente",
   "repo-web": "Repo & Web",
 
-  "contact-title": "Contacto"
+  "prev-button":"Anterior",
+  "next-button":"Siguiente",
+
+  "own-project": "Propio",
+  "client-project": "Cliente",
+
+  "galery-title":"Galeria",
+
+  "contact-title": "Contacto",
+  "contact-message": "Mi meta es construir una experiencia web única y emocionante para tus usuarios. Estoy listo para crear un producto que mejore la vida de tus clientes. ¡Hablemos de cómo podemos lograrlo juntos!"
 }

@@ -5,68 +5,110 @@ import useTranslation from "next-translate/useTranslation"
 
 import DarkmodeContext from "context/DarkmodeContext"
 import { useRouter } from "next/router"
+import Image from "next/image"
 
 export const Projects = ({ data }) => {
-  const { locale } = useRouter()
   const { t } = useTranslation()
-
-  const [image, setImage] = useState(data[0].image)
-  const [textHover, setTextHover] = useState("")
-  const [hover, setHover] = useState({
-    hover: false,
-    hoverId: null,
-  })
+  const router = useRouter()
+  const [image, setImage] = useState(data[0].image[0])
+  const [hover, setHover] = useState(null)
 
   const { theme } = useContext(DarkmodeContext)
 
-  const handleChange = ({ image, i }) => {
+  const handleChange = (image, i) => {
     setImage(image)
-    setHover({
-      hover: true,
-      hoverId: i,
-    })
-    setTextHover(i)
+    setHover(i)
   }
+
+  const ProjectComponent = ({ i, title, image }) => (
+    <>
+      <div className="flex items-center text-gray2 dark:text-gray4 font-bold lg:pb-2">
+        <span className="text-2xl">{i + 1 <= 9 ? `0${i + 1}` : `${i + 1}`}</span>
+        <span className="text-xl px-1">/</span>
+        <span className="text-xs pt-2">{data.length}</span>
+      </div>
+
+      <h5
+        className={`${
+          theme === "dark" ? "borderText" : "borderTextDark"
+        } group-hover:text-gray2 dark:group-hover:text-gray4 font-mainBold font-extrabold text-3xl lg:text-5xl`}
+      >
+        {title}
+      </h5>
+
+      {image ? (
+        <div className="lg:hidden flex space-x-5 pt-2 lg:pt-0 h-52">
+          <div className="w-full sm:w-2/4 lg:hidden h-full relative">
+            <Image
+              src={image[0]}
+              layout="fill"
+              objectFit="contain"
+              alt="project_img"
+            />
+          </div>
+          <div className="hidden sm:flex sm:w-2/4 lg:hidden h-full relative">
+            <Image
+              src={image[1]}
+              layout="fill"
+              objectFit="contain"
+              alt="project_img"
+            />
+          </div>
+        </div>
+      ) : null}
+    </>
+  )
 
   return (
     <div>
-      <h1 className="text-2xl sm:text-4xl font-mainBold text-black dark:text-white">
-        {t("common:project-title")}
-      </h1>
-      <section className="py-5 flex flex-col-reverse lg:flex-row lg:w-screen">
+      <div className="flex flex-col items-center justify-center">
+        <h5 className="font-main text-2xl sm:text-4xl lg:text-6xl gradient1">
+          {t("common:project-title")}
+        </h5>
+      </div>
+
+      <section className="flex flex-col-reverse lg:flex-row lg:w-screen">
         <div className="flex flex-col lg:w-2/4">
-          {data.map(({ title, image, slug }, i) => (
-            <Link passHref key={i} href={`/${slug}`} locale="en">
-              <motion.div
-                whileHover={{ x: "20px" }}
-                transition={{
-                  duration: 0.3,
-                  delay: hover.hover && 0.2,
-                  ease: "easeInOut",
-                }}
-                className={`${
-                  theme === "dark" ? "borderText" : "borderTextDark"
-                } ${
-                  textHover === i && "text-black dark:text-white"
-                } select-none my-10 cursor-pointer`}
-                onMouseEnter={() => handleChange({ image, i })}
-                onMouseLeave={() => setHover({ hover: false })}
+          {data.map(({ title, image: imageD, slug }, i) => (
+            <Link passHref key={i} href={`/${slug}`} locale={router.locale}>
+              <a
+                className={`group overflow-hidden select-none py-3 cursor-pointer border-b border-gray4 dark:border-gray1`}
               >
-                <h1 className="font-mainBold text-center lg:text-left font-extrabold text-4xl sm:text-5xl">
-                  {title}
-                </h1>
-              </motion.div>
+                <motion.div
+                  whileHover={{ x: 20 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: hover === i ? 0.2 : 0,
+                    ease: "easeIn",
+                  }}
+                  onMouseEnter={() => handleChange(imageD[0], i)}
+                  onMouseLeave={() => setHover(null)}
+                  className="hidden lg:flex flex-col w-full pl-1"
+                >
+                  <ProjectComponent i={i} title={title} />
+                </motion.div>
+
+                <div className="flex flex-col lg:hidden">
+                  <ProjectComponent i={i} title={title} image={imageD} />
+                </div>
+              </a>
             </Link>
           ))}
         </div>
-        <div className="hidden sm:flex lg:w-2/4 bg-gray-200 dark:bg-black1 xl:bg-transparent lg:h-screen flex items-center justify-center xl:pb-20 py-5 xl:py-0 sticky top-[3.5rem] right-0">
-          <div className="overflow-hidden w-3/4 lg:w-screen h-[150px] sm:h-[300px] xl:h-[450px]">
-            <motion.img
-              animate={hover.hover ? { scale: 1.02 } : { scale: 1 }}
-              transition={{ duration: 1 }}
+
+        <div className="hidden lg:flex lg:w-2/4 h-screen items-center justify-center xl:pb-20 sticky top-[8vh] right-0">
+          <motion.div
+            animate={hover != null ? { scale: 1.02 } : { scale: 1 }}
+            transition={{ duration: 1 }}
+            className="relative w-full h-full"
+          >
+            <Image
               src={image}
+              layout="fill"
+              objectFit="contain"
+              alt="project_img"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

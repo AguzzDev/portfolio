@@ -1,44 +1,105 @@
 import { MDXRemote } from "next-mdx-remote"
-import Link from "next/link"
 
 import { getFiles, getFileBySlug } from "lib/mdx"
 import { Layout } from "components/Layout"
 import MDXComponents from "components/mdx/MDXComponents"
+import { IconCustomSize, IconMd } from "components/Icons"
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/outline"
+import { useEffect, useState } from "react"
+import useTranslation from "next-translate/useTranslation"
 
 const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
+  const { t } = useTranslation()
+
+  const [loading, setLoading] = useState(true)
+  const Button = ({ icon, title, position, boolean }) => {
+    return (
+      <>
+        <a href={boolean && position == "right" ? nextProject : prevProject}>
+          {position === "right" ? (
+            <button
+              className={`flex space-x-2 sm:space-x-4 items-center pt-7 sm:pt-6 ${
+                !boolean ? "opacity-50" : null
+              }`}
+            >
+              <p className="text-md sm:text-3xl text-black dark:text-white">
+                {title}
+              </p>
+              <IconCustomSize Icon={icon} size="w-5 sm:w-7" />
+            </button>
+          ) : (
+            <button
+              className={`flex space-x-2 sm:space-x-4 items-center pb-3 sm:pb-5 ${
+                !boolean ? "opacity-50" : null
+              }`}
+            >
+              <IconCustomSize Icon={icon} size="w-5 sm:w-7" />
+              <p className="text-md sm:text-3xl text-black dark:text-white">
+                {title}
+              </p>
+            </button>
+          )}
+        </a>
+      </>
+    )
+  }
+
+  useEffect(() => {
+    if (source && frontmatter && nextProject && prevProject) {
+      setLoading(false)
+    }
+  }, [source, frontmatter, nextProject, prevProject])
+
   return (
-    <Layout title={`${frontmatter.title} - Portafolio`}>
-      <MDXRemote components={MDXComponents} {...source} />
-      <div
-        className={`${
-          !nextProject || !prevProject
-            ? "justify-center items-center w-full"
-            : "w-2/4 justify-between"
-        } mx-auto flex my-5 md:my-20`}
-      >
-        {prevProject && (
-          <Link passHref href={prevProject}>
-            <button className="text-3xl sm:text-5xl md:text-6xl text-black dark:text-white">
-              Prev project
+    <>
+      {!loading && (
+        <Layout title={`${frontmatter.title} - Portafolio`}>
+          <MDXRemote components={MDXComponents} {...source} />
+          <div
+            id="buttons"
+            className="flex justify-between space-x-2 md:space-x-0 lg:space-x-3 h-[5rem] mx-auto my-5 md:my-10"
+          >
+            <Button
+              icon={ChevronLeftIcon}
+              title={t("common:prev-button")}
+              position="left"
+              boolean={prevProject ? true : false}
+            />
+            <div className="w-12 md:w-16 h-[.2rem] bg-black dark:bg-white rotate-[120deg] translate-y-8 rounded-md"></div>
+            <Button
+              icon={ChevronRightIcon}
+              title={t("common:next-button")}
+              position="right"
+              boolean={nextProject ? true : false}
+            />
+          </div>
+
+          <div className="sticky bottom-0 flex justify-center items-center">
+            <button
+              onClick={() => {
+                const selector = document.querySelector("#buttons")
+                setTimeout(() => {
+                  selector.scrollIntoView({ behavior: "smooth" })
+                }, 200)
+              }}
+            >
+              <IconMd Icon={ChevronDownIcon} />
             </button>
-          </Link>
-        )}
-        {nextProject && (
-          <Link passHref href={nextProject}>
-            <button className="text-3xl sm:text-5xl md:text-6xl text-black dark:text-white">
-              Next project
-            </button>
-          </Link>
-        )}
-      </div>
-    </Layout>
+          </div>
+        </Layout>
+      )}
+    </>
   )
 }
 
 export const getStaticPaths = async ({ locales }) => {
   const data = await getFiles()
-  let paths = []
 
+  let paths = []
   locales.forEach((locale) => {
     paths = paths.concat(
       data.map((post) => ({
@@ -52,14 +113,14 @@ export const getStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 
 export const getStaticProps = async ({ params }) => {
   const { source, frontmatter } = await getFileBySlug(params.slug)
-
   const allData = await getFiles()
+
   const actuallyProjectIndex = allData.findIndex(
     (post) => post.replace(/\.mdx/, "") === params.slug
   )

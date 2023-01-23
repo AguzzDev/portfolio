@@ -16,5 +16,14 @@
   "client": "Client",
   "repo-web": "Repo & Web",
 
-  "contact-title": "Contact"
+  "prev-button": "Prev Project",
+  "next-button": "Next Project",
+
+  "own-project": "Own",
+  "client-project": "Client",
+
+  "galery-title": "Galery",
+
+  "contact-title": "Contact",
+  "contact-message": "My goal is to build a unique and exciting web experience for your users. I'm ready to create a product that will improve the lives of your customers. Let's talk about how we can do it together!"
 }

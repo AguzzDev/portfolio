@@ -6,7 +6,7 @@ export const Metatags = () => {
         lang="es"
         content="Portafolio de Agustín Ribotta"
       />
-       <meta
+      <meta
         name="description"
         lang="en"
         content="Portfolio of Agustín Ribotta"
@@ -42,7 +42,7 @@ export const Metatags = () => {
         lang="en"
         content="Portfolio of Agustín Ribotta"
       />
-      <meta name="twitter:image" content="/logo.png" />
+      <meta name="twitter:image" content="/" />
     </>
   )
 }

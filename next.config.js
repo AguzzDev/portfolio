@@ -1,9 +1,11 @@
 const nextTranslate = require("next-translate")
 
-module.exports = {
+const config = {
   reactStrictMode: true,
   ...nextTranslate(),
   eslint: {
     ignoreDuringBuilds: true,
   },
 }
+
+module.exports = config
