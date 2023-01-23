@@ -23,7 +23,9 @@ export const Projects = ({ data }) => {
   const ProjectComponent = ({ i, title, image }) => (
     <>
       <div className="flex items-center text-gray2 dark:text-gray4 font-bold lg:pb-2">
-        <span className="text-2xl">{i + 1 <= 9 ? `0${i + 1}` : `${i + 1}`}</span>
+        <span className="text-2xl">
+          {i + 1 <= 9 ? `0${i + 1}` : `${i + 1}`}
+        </span>
         <span className="text-xl px-1">/</span>
         <span className="text-xs pt-2">{data.length}</span>
       </div>
@@ -70,7 +72,7 @@ export const Projects = ({ data }) => {
       <section className="flex flex-col-reverse lg:flex-row lg:w-screen">
         <div className="flex flex-col lg:w-2/4">
           {data.map(({ title, image: imageD, slug }, i) => (
-            <Link passHref key={i} href={`/${slug}`} locale={router.locale}>
+            <Link passHref key={i} href={slug} locale={router.locale}>
               <a
                 className={`group overflow-hidden select-none py-3 cursor-pointer border-b border-gray4 dark:border-gray1`}
               >

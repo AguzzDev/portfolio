@@ -9,7 +9,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/outline"
-import { useEffect, useState } from "react"
 import useTranslation from "next-translate/useTranslation"
 
 const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
@@ -104,7 +103,7 @@ export const getStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   }
 }
 
@@ -112,7 +111,7 @@ export const getStaticProps = async ({ params }) => {
   const { source, frontmatter } = await getFileBySlug(params.slug)
   const allData = await getFiles()
 
-  const actuallyProjectIndex = allData.findIndex(
+  const actuallyProjectIndex = await allData.findIndex(
     (post) => post.replace(/\.mdx/, "") === params.slug
   )
   const nextProject = allData[actuallyProjectIndex - 1]

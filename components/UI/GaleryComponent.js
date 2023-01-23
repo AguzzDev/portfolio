@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { Fragment } from "react"
 
 import { ModalGalery } from "components/Modal/ModalGalery"
 import useTranslation from "next-translate/useTranslation"
@@ -35,7 +36,7 @@ export const GaleryComponent = ({ data }) => {
             const [isOpen, setIsOpen] = useState(false)
 
             return (
-              <div key={i}>
+              <Fragment key={i}>
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +46,7 @@ export const GaleryComponent = ({ data }) => {
                     setIsOpen(true)
                   }}
                   className={`${
-                    !patternDictionary[i + 1] ? "lg:col-span-2" : ""
+                    !patternDictionary[i + 1] ? "lg:col-span-2" : null
                   } cursor-pointer select-none relative h-[15rem] lg:h-[20rem] xl:h-[29.5rem] overflow-hidden`}
                 >
                   <Image
@@ -62,7 +63,7 @@ export const GaleryComponent = ({ data }) => {
                   img={img}
                   alt={alt}
                 />
-              </div>
+              </Fragment>
             )
           })}
         </div>
