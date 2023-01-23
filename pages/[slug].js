@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import { getFiles, getFileBySlug } from "lib/mdx"
-import { Layout } from "components/Layout"
-import MDXComponents from "components/mdx/MDXComponents"
-import { IconCustomSize, IconMd } from "components/Icons"
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/outline"
 import useTranslation from "next-translate/useTranslation"
+import { MDXRemote } from "next-mdx-remote"
+
+import { Layout } from "components/Layout"
+import MDXComponents from "components/mdx/MDXComponents"
+import { IconCustomSize, IconMd } from "components/Icons"
 
 const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
   const { t } = useTranslation()
