@@ -1,9 +1,9 @@
-# Portfolio
+# **Portfolio**
 
-![portfolio-images](/public/imagesMdx/1.png)
+![](./screenshots/1.PNG)
 
-![portfolio-images](/public/imagesMdx/2.png)
+![](./screenshots/2.PNG)
 
-![portfolio-images](/public/imagesMdx/3.png)
+![](./screenshots/3.PNG)
 
 *AguzzDev*
