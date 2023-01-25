@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion"
 import { useEffect } from "react"
-import ReactGA from "react-ga"
+import ReactGA from "react-ga4"
 
 import DarkmodeProvider from "context/DarkmodeProvider"
 import "styles/globals.css"

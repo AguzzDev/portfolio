@@ -1,6 +1,4 @@
 import useTranslation from "next-translate/useTranslation"
-import { useEffect } from "react"
-import ReactGA from "react-ga"
 
 import { Layout } from "components/Layout"
 import { Projects } from "components/Projects"
@@ -10,9 +8,6 @@ import { AboutMe } from "components/AboutMe"
 
 const Home = ({ projects }) => {
   const { t } = useTranslation()
-  useEffect(() => {
-    ReactGA.pageview("/home")
-  }, [])
 
   return (
     <Layout title="Portafolio">
