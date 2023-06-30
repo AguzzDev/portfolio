@@ -5,7 +5,7 @@ export const AboutMe = ({ t }) => {
         <p className="w-32 mb-2 mx-auto text-lg sm:text-xl border-b border-black dark:border-white">
           {t("common:aboutme-greeting")}
         </p>
-        <p> {t("common:aboutme-greeting2")}</p>
+        <h1> {t("common:aboutme-greeting2")}</h1>
         <p> {t("common:aboutme-greeting3")}</p>
       </div>
     </div>
