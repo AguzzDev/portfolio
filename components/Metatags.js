@@ -1,7 +1,7 @@
 export const Metatags = () => {
   return (
     <>
-      <meta name="keywords" content="Agustin Ribotta, agustin ribotta, agustin ribotta web, web agustin ribotta, portafolio agustin ribotta, agustin ribotta portafolio">
+      <meta name="keywords" content="Agustin Ribotta, agustin ribotta, agustin ribotta web, web agustin ribotta, portafolio agustin ribotta, agustin ribotta portafolio"/>
       <meta
         name="description"
         lang="es"
