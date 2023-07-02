@@ -14,8 +14,8 @@ export const Metatags = () => {
       />
       <meta property="og:url" content="https://www.agustin-ribotta.xyz" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" lang="es" content="Portafolio" />
-      <meta property="og:title" lang="en" content="Portfolio" />
+      <meta property="og:title" lang="es" content="Agustin Ribotta" />
+      <meta property="og:title" lang="en" content="Agustin Ribotta" />
       <meta
         property="og:description"
         lang="es"
@@ -31,8 +31,8 @@ export const Metatags = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:domain" content="agustin-ribotta.xyz" />
       <meta property="twitter:url" content="https://www.agustin-ribotta.xyz" />
-      <meta name="twitter:title" lang="es" content="Portafolio" />
-      <meta name="twitter:title" lang="en" content="Portfolio" />
+      <meta name="twitter:title" lang="es" content="Agustin Ribotta" />
+      <meta name="twitter:title" lang="en" content="Agustin Ribotta" />
       <meta
         name="twitter:description"
         lang="es"
