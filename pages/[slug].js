@@ -57,7 +57,7 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
   return (
     <>
       {!loading && (
-        <Layout title={`${frontmatter.title} - Portafolio`}>
+        <Layout title={`${frontmatter.title} - Agustin Ribotta`}>
           <MDXRemote components={MDXComponents} {...source} />
           <div
             id="buttons"
