@@ -10,7 +10,7 @@ const Home = ({ projects }) => {
   const { t } = useTranslation()
 
   return (
-    <Layout title="Portafolio">
+    <Layout title="Agustin Ribotta">
       <AboutMe t={t} />
       <Projects t={t} data={JSON.parse(projects)} />
       <Footer t={t} />
