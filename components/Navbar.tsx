@@ -1,18 +1,15 @@
-import {
-  MoonIcon,
-  SunIcon,
-} from "@heroicons/react/outline"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { useContext} from "react"
+import { MoonIcon, SunIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useContext } from "react";
 
-import DarkmodeContext from "context/DarkmodeContext"
-import Logo from "public/Logo"
-import { IconSm } from "./Icons"
-import { LanguageMenu } from "./Menu/LanguageMenu"
+import { useTheme } from "context/ThemeContext";
+import Logo from "public/Logo";
+import { IconSm } from "./Icons";
+import { LanguageMenu } from "./Menu/LanguageMenu";
 
 export const Navbar = () => {
-  const { toogleDarkMode, theme } = useContext(DarkmodeContext)
+  const { toggleTheme, theme } = useTheme();
 
   return (
     <nav className="sticky w-full top-0 z-10 bg-gray-200 dark:bg-black1 py-1">
@@ -25,7 +22,7 @@ export const Navbar = () => {
           </Link>
         </div>
         <div className="relative flex space-x-5">
-          <button onClick={toogleDarkMode}>
+          <button onClick={toggleTheme}>
             <motion.div whileHover={{ rotate: "30deg" }}>
               {theme === "dark" ? (
                 <IconSm Icon={MoonIcon} />
@@ -39,5 +36,5 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};

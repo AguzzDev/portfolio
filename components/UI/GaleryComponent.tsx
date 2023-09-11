@@ -1,22 +1,22 @@
-import React, { useState } from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Fragment } from "react"
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Fragment } from "react";
 
-import { ModalGalery } from "components/Modal/ModalGalery"
-import useTranslation from "next-translate/useTranslation"
+import { ModalGalery } from "components/Modal/ModalGalery";
+import useTranslation from "next-translate/useTranslation";
+import { GaleryComponentProps } from "types";
 
-export const GaleryComponent = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const { t } = useTranslation()
+export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { t } = useTranslation();
 
-  const { imgs, alt } = data
   const patternDictionary = {
     2: "2",
     3: "3",
     6: "6",
     7: "7",
-  }
+  };
 
   return (
     <div className="xl:mx-20 mt-10 md:mt-20">
@@ -24,7 +24,7 @@ export const GaleryComponent = ({ data }) => {
       {imgs.length === 1 ? (
         <div
           onClick={() => {
-            setIsOpen(true)
+            setIsOpen(true);
           }}
           className="max-h-[600px] relative cursor-pointer select-none mb-20"
         >
@@ -33,7 +33,7 @@ export const GaleryComponent = ({ data }) => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 my-3 gap-5 md:gap-10">
           {imgs.map((img, i) => {
-            const [isOpen, setIsOpen] = useState(false)
+            const [isOpen, setIsOpen] = useState(false);
 
             return (
               <Fragment key={i}>
@@ -43,7 +43,7 @@ export const GaleryComponent = ({ data }) => {
                   viewport={{ amount: 0.35 }}
                   transition={{ duration: 1 }}
                   onClick={() => {
-                    setIsOpen(true)
+                    setIsOpen(true);
                   }}
                   className={`${
                     !patternDictionary[i + 1] ? "lg:col-span-2" : null
@@ -64,10 +64,10 @@ export const GaleryComponent = ({ data }) => {
                   alt={alt}
                 />
               </Fragment>
-            )
+            );
           })}
         </div>
       )}
     </div>
-  )
-}
+  );
+};

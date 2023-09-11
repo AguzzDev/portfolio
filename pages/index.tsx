@@ -8,7 +8,7 @@ const Home = ({ projects }) => {
   return (
     <Layout title="Agustin Ribotta">
       <AboutMe />
-      <Projects data={JSON.parse(projects)} />
+      <Projects projects={JSON.parse(projects)} />
       <Footer />
     </Layout>
   );

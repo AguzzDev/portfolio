@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 import { Navbar } from "./Navbar";
-import { IconSm } from "./Icons";
-import { ChevronDownIcon } from "@heroicons/react/outline";
+import { LayoutProps } from "types";
 
-export const Layout = ({ children, title }) => {
+export const Layout = ({ children, title }: LayoutProps) => {
   const router = useRouter();
 
   return (
@@ -28,19 +27,6 @@ export const Layout = ({ children, title }) => {
         >
           {children}
         </motion.section>
-        <motion.button
-          initial={{ y: -5 }}
-          animate={{ y: 0 }}
-          transition={{
-            duration: 1,
-            type: "tween",
-            repeat: Infinity,
-            repeatDelay: 0.5,
-          }}
-          className="flex justify-center w-full sticky bottom-0 left-0 pb-5"
-        >
-          <IconSm Icon={ChevronDownIcon} />
-        </motion.button>
       </main>
     </>
   );

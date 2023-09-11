@@ -1,12 +1,12 @@
-import { LinkIcon, MailIcon } from "@heroicons/react/outline"
-import Link from "next/link"
-import { IconMd, IconSm } from "./Icons"
-import useTranslation from "next-translate/useTranslation"
+import { LinkIcon, MailIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import { IconMd, IconSm } from "./Icons";
+import useTranslation from "next-translate/useTranslation";
 
 export const Footer = () => {
-  const { t } = useTranslation()
-  
-  const LinkComponent = ({ link, title }) => {
+  const { t } = useTranslation();
+
+  const LinkComponent = ({ link, title }: { link: string; title: string }) => {
     return (
       <Link href={link}>
         <a
@@ -14,12 +14,12 @@ export const Footer = () => {
           rel="noreferrer"
           target="_blank"
         >
-          <IconSm Icon={LinkIcon} props="group-hover:text-[#9D51E1]"/>
+          <IconSm Icon={LinkIcon} props="group-hover:text-[#9D51E1]" />
           <h2 className="group-hover:gradient1 font-bold">{title}</h2>
         </a>
       </Link>
-    )
-  }
+    );
+  };
 
   return (
     <div className="flex flex-col md:flex-row justify-between my-10 p-3 md:p-5 rounded-xl border1">
@@ -44,5 +44,5 @@ export const Footer = () => {
         <LinkComponent title="Github" link="https://github.com/AguzzDev" />
       </div>
     </div>
-  )
-}
+  );
+};

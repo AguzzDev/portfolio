@@ -1,14 +1,14 @@
-import { Menu } from "@headlessui/react"
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/outline"
-import { useState } from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
+import { Menu } from "@headlessui/react";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/outline";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-import { IconSm } from "components/Icons"
+import { IconSm } from "components/Icons";
 
 export const LanguageMenu = () => {
-  const [clickMenu, setClickMenu] = useState(false)
-  const router = useRouter()
+  const [clickMenu, setClickMenu] = useState<boolean>(false);
+  const router = useRouter();
 
   return (
     <Menu as="div" className="flex items-center">
@@ -36,5 +36,5 @@ export const LanguageMenu = () => {
         ))}
       </Menu.Items>
     </Menu>
-  )
-}
+  );
+};

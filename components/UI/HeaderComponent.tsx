@@ -1,6 +1,7 @@
-import Image from "next/image"
-import React from "react"
-import { motion } from "framer-motion"
+import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
+import { HeaderComponentProps, LetterHeaderProps } from "types";
 
 const letter = {
   animate: {
@@ -9,7 +10,7 @@ const letter = {
       staggerChildren: 0.8,
     },
   },
-}
+};
 const letterAnimate = {
   initial: {
     y: -400,
@@ -18,23 +19,22 @@ const letterAnimate = {
     y: 0,
     transition: { duration: 1.5, ease: [0.6, 0.01, -0.05, 0.95] },
   },
-}
+};
 
-const letterHeader = ({ text1, text2, custom }) => {
+const letterHeader = ({ text1, text2, style }: LetterHeaderProps) => {
   return (
     <motion.h1
       variants={letterAnimate}
-      className={`text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-mainBold ${custom}`}
+      className={`text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-mainBold ${style}`}
     >
       {text1}
       {text2}
     </motion.h1>
-  )
-}
+  );
+};
 
-export const HeaderComponent = ({ data }) => {
-  const { img, alt, title } = data
-  const titleSplit = title.split(" ")
+export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
+  const titleSplit = title.split(" ");
 
   return (
     <div className="flex flex-col">
@@ -49,12 +49,12 @@ export const HeaderComponent = ({ data }) => {
             <h1>
               {letterHeader({
                 text1: titleSplit[0],
-                custom: "pt-5 md:pt-0 gradient1 dark:gradient1",
+                style: "pt-5 md:pt-0 gradient1 dark:gradient1",
               })}
             </h1>
             <div className="mt-12 lg:mt-16 w-12 sm:w-20 md:w-32 lg:w-40 h-1 bg-black dark:bg-white transform rotate-[120deg] rounded-md"></div>
 
-            <h1>{letterHeader({ text1: titleSplit[1], custom: "pt-10" })}</h1>
+            <h1>{letterHeader({ text1: titleSplit[1], style: "pt-10" })}</h1>
           </motion.div>
         </div>
       </div>
@@ -67,5 +67,5 @@ export const HeaderComponent = ({ data }) => {
         objectFit="contain"
       />
     </div>
-  )
-}
+  );
+};

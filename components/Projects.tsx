@@ -2,32 +2,36 @@ import { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-
-import DarkmodeContext from "context/DarkmodeContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { withScrollPosition } from "hoc/withScrollPosition";
 
-const ProjectsComponent = ({ scrollPosition, data }) => {
+import { withScrollPosition } from "hoc/withScrollPosition";
+import { useTheme } from "context/ThemeContext";
+import { ProjectsProps } from "types";
+
+const ProjectsComponent = ({ scrollPosition, projects }: ProjectsProps) => {
   const { t } = useTranslation();
   const router = useRouter();
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState<boolean>(false);
 
-  const { theme } = useContext(DarkmodeContext);
+  const { theme } = useTheme();
 
-  const handleChange = (image, i) => {
-    setImage(image);
-    setHover(i);
-  };
-
-  const Title = ({ i, title, image }) => (
+  const Title = ({
+    i,
+    title,
+    image,
+  }: {
+    i: number;
+    title: string;
+    image: string[];
+  }) => (
     <>
       <div className="flex items-center text-gray2 dark:text-gray4 font-bold lg:pb-2">
         <span className="text-2xl">
           {i + 1 <= 9 ? `0${i + 1}` : `${i + 1}`}
         </span>
         <span className="text-xl px-1">/</span>
-        <span className="text-xs pt-2">{data.length}</span>
+        <span className="text-xs pt-2">{projects.length}</span>
       </div>
 
       <h5
@@ -69,7 +73,7 @@ const ProjectsComponent = ({ scrollPosition, data }) => {
 
       <section className="flex w-full lg:w-screen">
         <div className="flex flex-col w-full lg:w-2/4">
-          {data.map(({ title, image: imageD, slug }, i) => (
+          {projects.map(({ title, image: imageD, slug }, i) => (
             <Link passHref key={i} href={slug} locale={router.locale}>
               <a
                 className={`group overflow-hidden select-none pt-10 pb-5 cursor-pointer border-b border-gray4 dark:border-gray1`}
@@ -78,12 +82,10 @@ const ProjectsComponent = ({ scrollPosition, data }) => {
                   key={i}
                   onMouseEnter={() => setHover(true)}
                   onMouseLeave={() => setHover(false)}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: 0.9 }}
                   animate={{ x: scrollPosition === i ? 30 : 0 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: hover === i ? 0.2 : 0,
-                    ease: "easeIn",
-                  }}
                   className="hidden lg:flex flex-col w-full pl-1"
                 >
                   <Title i={i} title={title} image={imageD} />
@@ -106,7 +108,7 @@ const ProjectsComponent = ({ scrollPosition, data }) => {
             className="relative w-full h-full"
           >
             <Image
-              src={data[scrollPosition]?.image[1]}
+              src={projects[scrollPosition]?.image[1]}
               layout="fill"
               objectFit="contain"
               alt="project_img"

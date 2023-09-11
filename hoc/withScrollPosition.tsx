@@ -9,9 +9,9 @@ export const withScrollPosition = (WrappedComponent) => {
       if (window.scrollY <= 250) return setScrollPosition(0);
 
       const itemIndex = Math.floor(scrollY / 165);
-      if (itemIndex < props.data.length - 1)
+      if (itemIndex < props.projects.length - 1)
         return setScrollPosition(itemIndex);
-      setScrollPosition(props.data.length - 1);
+      setScrollPosition(props.projects.length - 1);
     };
 
     useEffect(() => {

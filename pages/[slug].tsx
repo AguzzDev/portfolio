@@ -11,12 +11,28 @@ import { MDXRemote } from "next-mdx-remote";
 import { Layout } from "components/Layout";
 import MDXComponents from "components/mdx/MDXComponents";
 import { IconCustomSize, IconMd } from "components/Icons";
+import { ProjectDetailsProps } from "types";
 
-const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
+const ProjectDetails = ({
+  source,
+  frontmatter,
+  nextProject,
+  prevProject,
+}: ProjectDetailsProps) => {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
 
-  const Button = ({ icon, title, position, boolean }) => {
+  const Button = ({
+    icon,
+    title,
+    position,
+    boolean,
+  }: {
+    icon: React.FC;
+    title: string;
+    position: string;
+    boolean: Boolean;
+  }) => {
     return (
       <>
         <a href={boolean && position == "right" ? nextProject : prevProject}>
@@ -29,7 +45,7 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
               <p className="text-md sm:text-3xl text-black dark:text-white">
                 {title}
               </p>
-              <IconCustomSize Icon={icon} size="w-5 sm:w-7" />
+              <IconCustomSize Icon={icon} props="w-5 sm:w-7" />
             </button>
           ) : (
             <button
@@ -37,7 +53,7 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
                 !boolean ? "opacity-50" : null
               }`}
             >
-              <IconCustomSize Icon={icon} size="w-5 sm:w-7" />
+              <IconCustomSize Icon={icon} props="w-5 sm:w-7" />
               <p className="text-md sm:text-3xl text-black dark:text-white">
                 {title}
               </p>
@@ -67,28 +83,15 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
               icon={ChevronLeftIcon}
               title={t("common:prev-button")}
               position="left"
-              boolean={prevProject ? true : false}
+              boolean={!!prevProject}
             />
             <div className="w-12 md:w-16 h-[.2rem] bg-black dark:bg-white rotate-[120deg] translate-y-8 rounded-md"></div>
             <Button
               icon={ChevronRightIcon}
               title={t("common:next-button")}
               position="right"
-              boolean={nextProject ? true : false}
+              boolean={!!nextProject}
             />
-          </div>
-
-          <div className="sticky bottom-0 flex justify-center items-center">
-            <button
-              onClick={() => {
-                const selector = document.querySelector("#buttons");
-                setTimeout(() => {
-                  selector.scrollIntoView({ behavior: "smooth" });
-                }, 200);
-              }}
-            >
-              <IconMd Icon={ChevronDownIcon} />
-            </button>
           </div>
         </Layout>
       )}
@@ -99,21 +102,21 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
 export const getStaticPaths = async ({ locales }) => {
   const data = await getFiles();
 
-  let paths = [];
+  const paths = [];
   locales.forEach((locale) => {
-    paths = paths.concat(
-      data.map((post) => ({
+    data.forEach((post) => {
+      paths.push({
         params: {
           slug: post.replace(/\.mdx/, ""),
-          locale,
         },
-      }))
-    );
+        locale,
+      });
+    });
   });
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
@@ -126,7 +129,6 @@ export const getStaticProps = async ({ params }) => {
   );
   const nextProject = allData[actuallyProjectIndex - 1];
   const prevProject = allData[actuallyProjectIndex + 1];
-
   return {
     props: {
       source,
