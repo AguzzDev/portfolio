@@ -1,6 +1,9 @@
-export const AboutMe = ({ t }) => {
+import useTranslation from "next-translate/useTranslation";
+
+export const AboutMe = () => {
+  const { t } = useTranslation();
   return (
-    <div className="grid place-content-center h-[30vh] md:h-[50vh]">
+    <div className="grid place-content-center h-[30vh] md:h-[75vh]">
       <div className="text-center text-3xl sm:text-5xl lg:text-7xl font-mainBold">
         <p className="w-32 mb-2 mx-auto text-lg sm:text-xl border-b border-black dark:border-white">
           {t("common:aboutme-greeting")}
@@ -9,5 +12,5 @@ export const AboutMe = ({ t }) => {
         <p> {t("common:aboutme-greeting3")}</p>
       </div>
     </div>
-  )
-}
+  );
+};

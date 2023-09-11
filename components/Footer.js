@@ -1,8 +1,11 @@
 import { LinkIcon, MailIcon } from "@heroicons/react/outline"
 import Link from "next/link"
 import { IconMd, IconSm } from "./Icons"
+import useTranslation from "next-translate/useTranslation"
 
-export const Footer = ({ t }) => {
+export const Footer = () => {
+  const { t } = useTranslation()
+  
   const LinkComponent = ({ link, title }) => {
     return (
       <Link href={link}>

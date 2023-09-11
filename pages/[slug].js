@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react"
-import { getFiles, getFileBySlug } from "lib/mdx"
+import { useEffect, useState } from "react";
+import { getFiles, getFileBySlug } from "lib/mdx";
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-} from "@heroicons/react/outline"
-import useTranslation from "next-translate/useTranslation"
-import { MDXRemote } from "next-mdx-remote"
+} from "@heroicons/react/outline";
+import useTranslation from "next-translate/useTranslation";
+import { MDXRemote } from "next-mdx-remote";
 
-import { Layout } from "components/Layout"
-import MDXComponents from "components/mdx/MDXComponents"
-import { IconCustomSize, IconMd } from "components/Icons"
+import { Layout } from "components/Layout";
+import MDXComponents from "components/mdx/MDXComponents";
+import { IconCustomSize, IconMd } from "components/Icons";
 
 const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
-  const { t } = useTranslation()
-  const [loading, setLoading] = useState(true)
+  const { t } = useTranslation();
+  const [loading, setLoading] = useState(true);
 
   const Button = ({ icon, title, position, boolean }) => {
     return (
@@ -45,14 +45,14 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
           )}
         </a>
       </>
-    )
-  }
+    );
+  };
 
   useEffect(() => {
     if (source || frontmatter || nextProject || prevProject) {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [source, frontmatter, nextProject, prevProject])
+  }, [source, frontmatter, nextProject, prevProject]);
 
   return (
     <>
@@ -81,10 +81,10 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
           <div className="sticky bottom-0 flex justify-center items-center">
             <button
               onClick={() => {
-                const selector = document.querySelector("#buttons")
+                const selector = document.querySelector("#buttons");
                 setTimeout(() => {
-                  selector.scrollIntoView({ behavior: "smooth" })
-                }, 200)
+                  selector.scrollIntoView({ behavior: "smooth" });
+                }, 200);
               }}
             >
               <IconMd Icon={ChevronDownIcon} />
@@ -93,13 +93,13 @@ const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }) => {
         </Layout>
       )}
     </>
-  )
-}
+  );
+};
 
 export const getStaticPaths = async ({ locales }) => {
-  const data = await getFiles()
+  const data = await getFiles();
 
-  let paths = []
+  let paths = [];
   locales.forEach((locale) => {
     paths = paths.concat(
       data.map((post) => ({
@@ -108,24 +108,24 @@ export const getStaticPaths = async ({ locales }) => {
           locale,
         },
       }))
-    )
-  })
+    );
+  });
 
   return {
     paths,
     fallback: true,
-  }
-}
+  };
+};
 
 export const getStaticProps = async ({ params }) => {
-  const { source, frontmatter } = await getFileBySlug(params.slug)
-  const allData = await getFiles()
+  const { source, frontmatter } = await getFileBySlug(params.slug);
+  const allData = await getFiles();
 
   const actuallyProjectIndex = await allData.findIndex(
     (post) => post.replace(/\.mdx/, "") === params.slug
-  )
-  const nextProject = allData[actuallyProjectIndex - 1]
-  const prevProject = allData[actuallyProjectIndex + 1]
+  );
+  const nextProject = allData[actuallyProjectIndex - 1];
+  const prevProject = allData[actuallyProjectIndex + 1];
 
   return {
     props: {
@@ -134,7 +134,7 @@ export const getStaticProps = async ({ params }) => {
       nextProject: nextProject ? nextProject.replace(/\.mdx/, "") : null,
       prevProject: prevProject ? prevProject.replace(/\.mdx/, "") : null,
     },
-  }
-}
+  };
+};
 
-export default ProjectDetails
+export default ProjectDetails;
