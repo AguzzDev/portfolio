@@ -1,7 +1,7 @@
-import { AnimatePresence } from "framer-motion";
 import "styles/globals.css";
 
 import { ThemeProvider } from "context/ThemeContext";
+import { AnimatePresence } from "types/AnimatePresence";
 
 function MyApp({ Component, pageProps }) {
   return (

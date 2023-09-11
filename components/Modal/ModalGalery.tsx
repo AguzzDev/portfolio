@@ -1,6 +1,7 @@
 import { Dialog } from "@headlessui/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { AnimatePresence } from "types/AnimatePresence";
 
 export const ModalGalery = ({ isOpen, setIsOpen, img, alt }) => {
   return (
