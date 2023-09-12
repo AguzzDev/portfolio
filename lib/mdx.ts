@@ -35,6 +35,10 @@ export const getAllFilesMetadata = () => {
     );
     const { data } = matter(mdxSource);
 
-    return [{ ...data, slug: postSlug.replace(".mdx", "") }, ...allPosts];
+    return [{ ...data, slug: postSlug.replace(".mdx", "") }, ...allPosts].sort(
+      (a, b) => {
+        return new Date(b.date) > new Date(a.date) ? 1 : -1;
+      }
+    );
   }, []);
 };
