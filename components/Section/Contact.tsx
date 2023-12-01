@@ -10,26 +10,12 @@ export const Contact = () => {
   const [send, setSend] = useState(false);
   const { t } = useTranslation();
 
-  const axiosURL = axios.create({ baseURL: "http://localhost:3000" });
-
-  const handleSubmit = async (values, { resetForm, setStatus }) => {
-    const errorsType = {
-      450: "El email no existe",
-    };
-
-    try {
-      await axiosURL.post("/api/sendMail", values);
-
-      setStatus({});
-      setSend(true);
-      setTimeout(() => {
-        resetForm();
-        setSend(false);
-      }, 5000);
-    } catch (error) {
-      setStatus({ err: errorsType[error.response.data.responseCode] });
-    }
-  };
+  const axiosURL = axios.create({
+    baseURL:
+      process.env.NODE_ENV == "development"
+        ? "http://localhost:3000"
+        : "https://www.agustin-ribotta.xyz",
+  });
 
   return (
     <section id="contact-section" className="w-full sm:w-3/4">
@@ -41,9 +27,27 @@ export const Contact = () => {
       <Formik
         initialValues={{ name: "", email: "", message: "", err: "" }}
         validationSchema={FormValidate}
-        onSubmit={handleSubmit}
+        onSubmit={async (values, { resetForm, setStatus, setSubmitting }) => {
+          const errorsType = {
+            450: "El email no existe",
+          };
+
+          try {
+            await axiosURL.post("/api/sendMail", values);
+
+            setStatus({});
+            setSend(true);
+            setTimeout(() => {
+              resetForm();
+              setSend(false);
+              setSubmitting(false);
+            }, 3000);
+          } catch (error) {
+            setStatus({ err: errorsType[error.response.data.responseCode] });
+          }
+        }}
       >
-        {({ values, setSubmitting, isSubmitting, status }) => (
+        {({ isSubmitting, status }) => (
           <Form className="flex flex-col box1 p-5">
             <InputField label="Nombre" name="name" />
             <InputField label="Email" name="email" />
