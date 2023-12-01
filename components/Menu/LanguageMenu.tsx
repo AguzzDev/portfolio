@@ -33,11 +33,9 @@ export const LanguageMenu = () => {
       <Menu.Items className="absolute top-8 right-0 border border-gray3 dark:border-gray2 bg-gray4 bg-opacity-40 dark:bg-black2 rounded-md flex flex-col space-y-2">
         {router.locales.map((option, i) => (
           <Menu.Item>
-            <button key={i} className="px-10 py-2">
-              <Link passHref href={router.asPath} locale={option}>
-                <p className="uppercase">{option}</p>
-              </Link>
-            </button>
+            <Link key={i} passHref href={router.asPath} locale={option}>
+              <button className="px-10 py-2 uppercase hover:gradient1 dark:hover:gradient1 text-dark dark:text-white">{option}</button>
+            </Link>
           </Menu.Item>
         ))}
       </Menu.Items>
