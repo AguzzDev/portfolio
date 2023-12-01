@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, InputHTMLAttributes } from "react";
 
 // UI
 export interface GaleryComponentProps {
-  imgs: string[];
+  imgs: Array<{ path: string; mobile: string }>;
   alt: string;
+  mobile: boolean;
 }
 export interface HeaderComponentProps {
   img: string;
@@ -56,7 +57,6 @@ interface Project {
 }
 
 export interface ProjectsProps {
-  scrollPosition: number;
   projects: Project[];
 }
 
@@ -77,4 +77,11 @@ export interface ProjectDetailsProps {
   frontmatter: Frontmatter;
   nextProject: string | null;
   prevProject: string | null;
+}
+
+export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  name: string;
+  as?: string;
+  rows?: string;
 }

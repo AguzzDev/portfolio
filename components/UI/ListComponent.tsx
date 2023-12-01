@@ -10,8 +10,6 @@ export const ListComponent = ({
   lib,
   year,
   client,
-  website,
-  repo,
 }: ListComponentProps) => {
   const { t } = useTranslation();
 
@@ -43,9 +41,9 @@ export const ListComponent = ({
   }: TableChildrenProps) => {
     return (
       <div className={`${!last ? "border-b border-gray3" : null} md:border-0`}>
-        <h2 className="gradient1 dark:gradient1 font-bold border-0 md:border-b border-gray3">
+        <h3 className="gradient1 dark:gradient1 font-bold border-0 md:border-b border-gray3">
           {title}
-        </h2>
+        </h3>
         <div
           className={`${
             !last ? "pb-1" : null
@@ -56,40 +54,19 @@ export const ListComponent = ({
       </div>
     );
   };
+
   return (
-    <div className="border1 p-3 md:px-5 md:py-10 rounded-xl xl:mx-20">
-      <div className="flex flex-col md:grid grid-cols-5">
-        <TableChildren title={t("common:technologys")} data={tec} />
-        <TableChildren title={t("common:libraries")} data={lib} />
-        <TableChildren title={t("common:year")} data={year} />
-        <TableChildren title={t("common:client")} data={client} />
-        <TableChildren title={t("common:repo-web")} last={true}>
-          <div className="flex flex-col">
-            <Link href={repo} passHref>
-              <a
-                rel="noreferrer"
-                className="group flex space-x-2 items-center hover:gradient1"
-                target="_blank"
-              >
-                <IconXs Icon={LinkIcon} props="group-hover:text-[#9D51E1]" />
-                <p className="group-hover:gradient1">Repo</p>
-              </a>
-            </Link>
-            {website && (
-              <Link href={website} passHref>
-                <a
-                  rel="noreferrer"
-                  className="group flex space-x-2 items-center hover:gradient1"
-                  target="_blank"
-                >
-                  <IconXs Icon={LinkIcon} props="group-hover:text-[#9D51E1]" />
-                  <p className="group-hover:gradient1">Web</p>
-                </a>
-              </Link>
-            )}
-          </div>
-        </TableChildren>
+    <section className="mx-5 md:mx-10 xl:mx-20 mt-10">
+      <h2 className="textGradient font-bold">{t("common:details-title")}</h2>
+
+      <div className="box1 p-3 md:px-5 md:py-10 mt-2">
+        <div className="flex flex-col md:grid grid-cols-4">
+          <TableChildren title={t("common:technologys")} data={tec} />
+          <TableChildren title={t("common:libraries")} data={lib} />
+          <TableChildren title={t("common:year")} data={year} />
+          <TableChildren title={t("common:client")} data={client} />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };

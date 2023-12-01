@@ -5,22 +5,27 @@ date: "2022-10-01"
 ---
 
 <Header title="Sports App" img="/images/sports/1.png" alt="Sports Picture" />
+<Overview
+  description="common:overview-sports-description"
+  features="common:overview-sports-features"
+  website="https://sports-app.agustin-ribotta.xyz/"
+  repo="https://github.com/AguzzDev/nextjs-sports-app"
+/>
 <List
   tec={["NextJS"]}
   lib={["TailwindCSS", "GraphQL", "MongoDB"]}
   year="2022"
   client="common:own-project"
-  website="https://sports-app.agustin-ribotta.xyz/"
-  repo="https://github.com/AguzzDev/nextjs-sports-app"
 />
 <Galery
   imgs={[
-    "/images/sports/1.png",
-    "/images/sports/2.png",
-    "/images/sports/3.png",
-    "/images/sports/4.png",
-    "/images/sports/5.png",
-    "/images/sports/6.png",
+    { path: "/images/sports/4.PNG", mobile: "false" },
+    { path: "/images/sports/3.PNG", mobile: "true" },
+    { path: "/images/sports/1.PNG", mobile: "false" },
+    { path: "/images/sports/2.PNG", mobile: "true" },
+    { path: "/images/sports/5.PNG", mobile: "false" },
+    { path: "/images/sports/6.PNG", mobile: "true" },
   ]}
   alt="Sports App"
+  mobile="true"
 />

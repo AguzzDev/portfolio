@@ -5,20 +5,25 @@ date: "2021-01-01"
 ---
 
 <Header title="Udemy Clone" img="/images/udemy/1.PNG" alt="Udemy Picture" />
+<Overview
+  description="common:overview-udemy-description"
+  features="common:overview-udemy-features"
+  website="https://udemy-app.agustin-ribotta.xyz/"
+  repo="https://github.com/AguzzDev/nextjs-udemy-pageclone"
+/>
 <List
   tec={["NextJS"]}
   lib={["TailwindCSS", "Tippy", "Headless UI", "Swiper"]}
   year="2021"
   client="common:own-project"
-  website="https://udemy-app.agustin-ribotta.xyz/"
-  repo="https://github.com/AguzzDev/nextjs-udemy-pageclone"
 />
 <Galery
   imgs={[
-    "/images/udemy/1.PNG",
-    "/images/udemy/3.PNG",
-    "/images/udemy/2.PNG",
-    "/images/udemy/5.PNG",
+    { path: "/images/udemy/1.PNG", mobile: "false" },
+    { path: "/images/udemy/3.PNG", mobile: "true" },
+    { path: "/images/udemy/5.PNG", mobile: "false" },
+    { path: "/images/udemy/4.PNG", mobile: "true" },
   ]}
   alt="Udemy Clone"
+  mobile="true"
 />

@@ -6,7 +6,7 @@ import { AnimatePresence } from "types/AnimatePresence";
 function MyApp({ Component, pageProps }) {
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="bg" />
+      <div className="bg bg-opacity" />
       <ThemeProvider>
         <Component {...pageProps} />
       </ThemeProvider>

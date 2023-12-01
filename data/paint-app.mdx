@@ -5,12 +5,23 @@ date: "2021-01-01"
 ---
 
 <Header title="Paint App" img="/images/paint/1.PNG" alt="Paint Picture" />
+<Overview
+  description="common:overview-paint-description"
+  features="common:overview-paint-features"
+  website="https://paint-app.agustin-ribotta.xyz/"
+  repo="https://github.com/AguzzDev/react-paint-app"
+/>
 <List
   tec={["React"]}
   lib={["TailwindCSS", "React Canvas Draw", "RoughJS", "TippyJS"]}
   year="2021"
   client="common:own-project"
-  website="https://paint-app.agustin-ribotta.xyz/"
-  repo="https://github.com/AguzzDev/react-paint-app"
 />
-<Galery imgs={["/images/paint/1.PNG", "/images/paint/1.PNG"]} alt="Paint App" />
+
+<Galery
+  imgs={[
+    { path: "/images/paint/1.PNG", mobile: "false" },
+    { path: "/images/paint/1.PNG", mobile: "false" },
+  ]}
+  alt="Paint App"
+/>

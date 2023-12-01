@@ -3,11 +3,13 @@ import Link from "next/link";
 import { ListComponent } from "components/UI/ListComponent";
 import { GaleryComponent } from "components/UI/GaleryComponent";
 import { HeaderComponent } from "components/UI/HeaderComponent";
+import { OverviewComponent } from "components/UI/OverviewComponent";
 
 export default {
   h1: (props) => <h1 {...props} className="text-6xl font-mainBold gradient1" />,
   h2: (props) => <h2 {...props} className="text-3xl" />,
   Header: (data) => <HeaderComponent {...data} />,
+  Overview: (data) => <OverviewComponent {...data} />,
   Galery: (data) => <GaleryComponent {...data} />,
   LinkTo: ({ to, name }) => (
     <Link passHref href={to}>

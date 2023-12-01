@@ -37,8 +37,8 @@ export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
   const titleSplit = title.split(" ");
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-center items-center mt-2 md:mt-20">
+    <section className="flex flex-col">
+      <div className="flex justify-center items-center mt-2 md:mt-12 h-[30vh]">
         <div className="flex justify-between">
           <motion.div
             className="flex"
@@ -59,13 +59,15 @@ export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
         </div>
       </div>
 
-      <Image
-        src={img}
-        width={3000}
-        height={2000}
-        alt={alt}
-        objectFit="contain"
-      />
-    </div>
+      <div className="relative h-screen mt-5">
+        <Image
+          src={img}
+          layout="fill"
+          alt={alt}
+          objectFit="cover"
+          className="h-full w-full"
+        />
+      </div>
+    </section>
   );
 };

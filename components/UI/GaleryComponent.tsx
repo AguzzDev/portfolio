@@ -18,9 +18,48 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
     7: "7",
   };
 
+  const ImageItem = ({ path, mobile, i }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const isMobile = mobile === "true";
+    const nextIsMobile = i < imgs.length && imgs[i + 1]?.mobile === "true";
+
+    const notMobileAndNextEither = !isMobile && !nextIsMobile;
+
+    return (
+      <Fragment key={i}>
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ amount: 0.35 }}
+          transition={{ duration: 1 }}
+          onClick={() => {
+            setIsOpen(true);
+          }}
+          className={`${notMobileAndNextEither ? "col-span-2" : null} ${
+            nextIsMobile ? "col-span-3" : null
+          } cursor-pointer select-none relative h-[15rem] lg:h-[20rem] overflow-hidden`}
+        >
+          <Image
+            layout="fill"
+            objectFit={isMobile ? "contain" : "cover"}
+            src={path}
+            alt={alt}
+          />
+        </motion.div>
+
+        <ModalGalery
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          img={path}
+          alt={alt}
+        />
+      </Fragment>
+    );
+  };
+
   return (
-    <div className="xl:mx-20 mt-10 md:mt-20">
-      <h2>{t("common:galery-title")}</h2>
+    <section className="mx-5 md:mx-10 xl:mx-20 mt-10">
+      <h2 className="textGradient font-bold">{t("common:galery-title")}</h2>
       {imgs.length === 1 ? (
         <div
           onClick={() => {
@@ -28,46 +67,15 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
           }}
           className="max-h-[600px] relative cursor-pointer select-none mb-20"
         >
-          <Image src={imgs[0]} layout="fill" alt={alt} />
+          <Image src={imgs[0].path} layout="fill" alt={alt} />
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 my-3 gap-5 md:gap-10">
-          {imgs.map((img, i) => {
-            const [isOpen, setIsOpen] = useState(false);
-
-            return (
-              <Fragment key={i}>
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ amount: 0.35 }}
-                  transition={{ duration: 1 }}
-                  onClick={() => {
-                    setIsOpen(true);
-                  }}
-                  className={`${
-                    !patternDictionary[i + 1] ? "lg:col-span-2" : null
-                  } cursor-pointer select-none relative h-[15rem] lg:h-[20rem] xl:h-[29.5rem] overflow-hidden`}
-                >
-                  <Image
-                    layout="fill"
-                    objectFit={!patternDictionary[i + 1] ? "cover" : "contain"}
-                    src={img}
-                    alt={alt}
-                  />
-                </motion.div>
-
-                <ModalGalery
-                  isOpen={isOpen}
-                  setIsOpen={setIsOpen}
-                  img={img}
-                  alt={alt}
-                />
-              </Fragment>
-            );
-          })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 my-3 gap-5 md:gap-10">
+          {imgs.map(({ path, mobile }, i) => (
+            <ImageItem path={path} mobile={mobile} i={i} />
+          ))}
         </div>
       )}
-    </div>
+    </section>
   );
 };

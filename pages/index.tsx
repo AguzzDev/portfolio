@@ -1,14 +1,16 @@
 import { Layout } from "components/Layout";
-import { Projects } from "components/Projects";
-import { Footer } from "components/Footer";
+import { Footer } from "components/Section/Footer";
 import { getAllFilesMetadata } from "lib/mdx";
-import { AboutMe } from "components/AboutMe";
+import { AboutMe } from "components/Section/AboutMe";
+import { Projects } from "components/Section/Projects/Projects";
+import { Contact } from "components/Section/Contact";
 
 const Home = ({ projects }) => {
   return (
     <Layout title="Agustin Ribotta">
       <AboutMe />
       <Projects projects={JSON.parse(projects)} />
+      <Contact />
       <Footer />
     </Layout>
   );

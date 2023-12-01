@@ -21,6 +21,7 @@ export const Navbar = () => {
             </a>
           </Link>
         </div>
+
         <div className="relative flex space-x-5">
           <button onClick={toggleTheme}>
             <motion.div whileHover={{ rotate: "30deg" }}>
