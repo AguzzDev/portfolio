@@ -64,7 +64,7 @@ export const Contact = () => {
                 {status.err}
               </p>
             )}
-            {send ? <p>Enviado</p> : null}
+            {send ? <p>{t("common:form-send")}</p> : null}
           </Form>
         )}
       </Formik>
