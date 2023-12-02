@@ -1,7 +1,17 @@
 {
   "metadata": "Portafolio de",
 
+  "form-error-1":"Email no existe",
   "form-send": "Enviado",
+  "form-input-name":"Nombre",
+  "form-input-email":"Email",
+  "form-input-message":"Mensaje",
+  "form-button-text": "Enviar",
+  "form-validate-required":"Requerido",
+  "form-validate-email":"Email no valido",
+  "form-validate-minCharacters":"Maximo 10 caracteres",
+  "form-validate-maxCharacters":"Minimo 500 caracteres",
+
   "loading": "Bienvenido a mi Portafolio",
   "404": "Pagina no encontrada",
   "back": "Volver",

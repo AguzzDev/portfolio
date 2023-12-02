@@ -31,7 +31,7 @@ export default async function handler(
         <p>${values.name}<br>${values.email}</p>`,
     });
 
-    res.status(200)
+    res.send(200)
   } catch (error) {
     res.status(400).json(error);
   }

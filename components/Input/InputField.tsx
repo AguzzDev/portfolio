@@ -1,8 +1,10 @@
 import { Field, useField } from "formik";
+import useTranslation from "next-translate/useTranslation";
 import { InputFieldProps } from "types";
 
 export const InputField = (props: InputFieldProps) => {
   const [field, meta] = useField(props);
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col">
@@ -18,7 +20,7 @@ export const InputField = (props: InputFieldProps) => {
       </div>
       {meta.touched && meta.error ? (
         <p className="mt-1 text-xs font-bold text-red-500 dark:text-red-400">
-          {meta.error}
+          {t(meta.error)}
         </p>
       ) : null}
     </div>

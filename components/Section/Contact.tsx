@@ -29,7 +29,7 @@ export const Contact = () => {
         validationSchema={FormValidate}
         onSubmit={async (values, { resetForm, setStatus, setSubmitting }) => {
           const errorsType = {
-            450: "El email no existe",
+            450: "common:form-error-1",
           };
 
           try {
@@ -49,19 +49,24 @@ export const Contact = () => {
       >
         {({ isSubmitting, status }) => (
           <Form className="flex flex-col box1 p-5">
-            <InputField label="Nombre" name="name" />
-            <InputField label="Email" name="email" />
-            <InputField label="Mensaje" name="message" as="textarea" rows="4" />
+            <InputField label={t("common:form-input-name")} name="name" />
+            <InputField label={t("common:form-input-email")} name="email" />
+            <InputField
+              label={t("common:form-input-message")}
+              name="message"
+              as="textarea"
+              rows="4"
+            />
             <button
               className="px-2 py-3 bg-gray1 dark:bg-gray4 mt-5 font-bold text-white dark:text-black rounded-md"
               type="submit"
               disabled={isSubmitting}
             >
-              Enviar
+              {t("common:form-button-text")}
             </button>
             {status && (
               <p className="mt-1 text-xs font-bold text-red-500 dark:text-red-400">
-                {status.err}
+                {t(status.err)}
               </p>
             )}
             {send ? <p>{t("common:form-send")}</p> : null}

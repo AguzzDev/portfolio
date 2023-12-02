@@ -1,7 +1,17 @@
 {
   "metadata": "Portfolio of",
 
+  "form-error-1":"Email not exist",
   "form-send": "Sent",
+  "form-input-name":"Name",
+  "form-input-email":"Email",
+  "form-input-message":"Message",
+  "form-button-text": "Send",
+  "form-validate-required":"Required",
+  "form-validate-email":"Email not valid",
+  "form-validate-minCharacters":"Minimum 10 characters",
+  "form-validate-maxCharacters":"Maximum 500 characters",
+  
   "loading": "Welcome to my Portfolio",
   "404": "Page not found",
   "back": "Back",
