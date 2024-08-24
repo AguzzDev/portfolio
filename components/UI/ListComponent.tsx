@@ -56,7 +56,7 @@ export const ListComponent = ({
   };
 
   return (
-    <section className="mx-5 md:mx-10 xl:mx-20 mt-10">
+    <section className="slugMargins mt-10">
       <h2 className="textGradient font-bold">{t("common:details-title")}</h2>
 
       <div className="box1 p-3 md:px-5 md:py-10 mt-2">

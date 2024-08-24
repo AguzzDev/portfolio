@@ -21,8 +21,7 @@ export const Project = (props) => {
 
   const { theme } = useTheme();
   const [ref, inView] = useInView({
-    threshold: 0.9,
-    delay: 0.7,
+    threshold: hoveredIndex === 0 ? 1 : 0.85,
   });
 
   useEffect(() => {
@@ -84,7 +83,7 @@ export const Project = (props) => {
     <Link passHref key={i} href={slug} locale={router.locale}>
       <a
         ref={ref}
-        className={`py-10 lg:my-20 lg:pt-32 lg:pb-12 group overflow-hidden select-none cursor-pointer border-b border-gray4 dark:border-gray1`}
+        className={`my-20 md:my-0 lg:py-60 2xl:py-72 group overflow-hidden select-none cursor-pointer border-b border-gray4 dark:border-gray1`}
       >
         <motion.div
           key={i}
@@ -98,7 +97,7 @@ export const Project = (props) => {
           }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ amount: 0.1 }}
+          viewport={{ amount: 0 }}
           animate={{ x: hoveredIndex === i ? 30 : 0 }}
           className="hidden lg:flex flex-col w-full pl-1"
         >

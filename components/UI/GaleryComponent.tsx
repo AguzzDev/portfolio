@@ -58,7 +58,7 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
   };
 
   return (
-    <section className="mx-5 md:mx-10 xl:mx-20 mt-10">
+    <section className="slugMargins mt-10">
       <h2 className="textGradient font-bold">{t("common:galery-title")}</h2>
       {imgs.length === 1 ? (
         <div

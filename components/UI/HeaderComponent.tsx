@@ -25,7 +25,7 @@ const letterHeader = ({ text1, text2, style }: LetterHeaderProps) => {
   return (
     <motion.h1
       variants={letterAnimate}
-      className={`text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-mainBold ${style}`}
+      className={`text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-mainBold ${style}`}
     >
       {text1}
       {text2}
@@ -59,7 +59,7 @@ export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
         </div>
       </div>
 
-      <div className="relative h-screen mt-5">
+      <div className="relative h-[25vh] sm:h-[50vh] md:h-screen mt-5">
         <Image
           src={img}
           layout="fill"

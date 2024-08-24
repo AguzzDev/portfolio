@@ -18,7 +18,7 @@ export const Contact = () => {
   });
 
   return (
-    <section id="contact-section" className="w-full sm:w-3/4">
+    <section id="contact-section" className="w-full">
       <h2 className="textGradient">{t("common:contact-title")}</h2>
       <div className="my-4">
         <h3 className="tracking-tight">{t("common:contact-message")}</h3>

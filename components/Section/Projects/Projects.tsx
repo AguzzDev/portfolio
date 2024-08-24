@@ -14,14 +14,12 @@ export const Projects = ({ projects }: ProjectsProps) => {
 
   return (
     <section className="mt-10">
-      <h2 className="textGradient">
-        {t("common:project-title")}
-      </h2>
+      <h2 className="textGradient">{t("common:project-title")}</h2>
 
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ amount: 0.02 }}
+        viewport={{ amount: 0 }}
         className="lg:-translate-y-28 flex w-full lg:w-screen"
       >
         <div className="flex flex-col w-full lg:w-2/4 xl:mb-52 mb-10">
@@ -57,4 +55,3 @@ export const Projects = ({ projects }: ProjectsProps) => {
     </section>
   );
 };
-

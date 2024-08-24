@@ -70,13 +70,13 @@
     @apply text-black dark:text-white;
   }
   h1 {
-    @apply text-4xl lg:text-6xl font-mainBold;
+    @apply text-4xl lg:text-6xl 2xl:text-7xl font-mainBold;
   }
   h2 {
-    @apply text-2xl sm:text-4xl lg:text-5xl;
+    @apply text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl;
   }
   h3{
-    @apply text-lg md:text-xl;
+    @apply text-lg md:text-xl 2xl:text-2xl;
   }
   .textGradient{
     @apply font-main gradient1 dark:gradient1;
@@ -86,6 +86,9 @@
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-gray3 dark:bg-gray4 rounded-full;
+  }
+  .slugMargins{
+    @apply mx-5 md:mx-10 xl:mx-20
   }
   .gradient1 {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-[#9D51E1] via-[#9B63A4] to-[#B86C7D];

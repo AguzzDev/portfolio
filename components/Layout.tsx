@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { Navbar } from "./Navbar";
 import { LayoutProps } from "types";
+import { isSlugPath } from "utils/isSlugPath";
 
 export const Layout = ({ children, title }: LayoutProps) => {
   const router = useRouter();
@@ -22,8 +23,8 @@ export const Layout = ({ children, title }: LayoutProps) => {
           exit={{ y: 60, opacity: 0 }}
           transition={{ duration: 1 }}
           className={`${
-            router.pathname === "/[slug]" ? "w-full" : "max-w-6xl"
-          } xl:px-0 flex flex-col mx-5 xl:mx-auto`}
+            isSlugPath(router.pathname) ? "w-full" : "max-w-7xl"
+          } px-5 xl:px-0 flex flex-col xl:mx-auto`}
         >
           {children}
         </motion.section>
