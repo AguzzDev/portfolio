@@ -19,7 +19,7 @@ export const Navbar = () => {
       <div
         className={`${
           isSlugPath(router.pathname) ? "slugMargins" : "max-w-7xl mx-auto"
-        } flex items-center justify-between w-full px-5 xl:px-0`}
+        } flex items-center justify-between`}
       >
         <div className="text-black1 dark:text-white1 fill-current">
           <Link passHref href="/">
