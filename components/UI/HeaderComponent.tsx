@@ -25,7 +25,7 @@ const letterHeader = ({ text1, text2, style }: LetterHeaderProps) => {
   return (
     <motion.h1
       variants={letterAnimate}
-      className={`text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-mainBold ${style}`}
+      className={`text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-mainBold ${style}`}
     >
       {text1}
       {text2}

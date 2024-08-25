@@ -15,16 +15,20 @@ export const Layout = ({ children, title }: LayoutProps) => {
         <title>{title}</title>
       </Head>
 
-      <main>
+      <main
+        className={`${
+          isSlugPath(router.pathname)
+            ? "w-full"
+            : "globalMargins xl:mx-auto max-w-7xl"
+        } `}
+      >
         <Navbar />
         <motion.section
           initial={{ y: 60, opacity: 0 }}
           animate={{ y: router.pathname === "/404" ? 100 : 0, opacity: 1 }}
           exit={{ y: 60, opacity: 0 }}
           transition={{ duration: 1 }}
-          className={`${
-            isSlugPath(router.pathname) ? "w-full" : "max-w-7xl"
-          } px-5 xl:px-0 flex flex-col xl:mx-auto`}
+          className="flex flex-col"
         >
           {children}
         </motion.section>

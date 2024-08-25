@@ -37,11 +37,11 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
           }}
           className={`${notMobileAndNextEither ? "col-span-2" : null} ${
             nextIsMobile ? "col-span-3" : null
-          } cursor-pointer select-none relative h-[15rem] lg:h-[20rem] overflow-hidden`}
+          } cursor-pointer select-none relative h-[17rem] sm:h-[30rem] overflow-hidden`}
         >
           <Image
             layout="fill"
-            objectFit={isMobile ? "contain" : "cover"}
+            objectFit={isMobile ? "contain" : "contain"}
             src={path}
             alt={alt}
           />
@@ -58,7 +58,7 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
   };
 
   return (
-    <section className="slugMargins mt-10">
+    <section className="globalMargins globalSpacing">
       <h2 className="textGradient font-bold">{t("common:galery-title")}</h2>
       {imgs.length === 1 ? (
         <div

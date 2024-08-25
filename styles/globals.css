@@ -1,23 +1,15 @@
 .borderText {
   letter-spacing: 0.2rem;
-  color: rgb(20 20 20);
-  text-shadow: 1px 0 0 #ffff, -1px 0 0 #ffff, 0 1px 0 #ffff,
-    0 -1px 0 #ffff, 1px 1px #ffff, -1px -1px 0 #ffff, 1px -1px 0 #ffff,
-    -1px 1px 0 #ffff;
+  color: rgb(20, 20, 20);
+  text-shadow: 1px 1px 0 #cccccc, -1px -1px 0 #cccccc, 1px -1px 0 #cccccc,
+    -1px 1px 0 #cccccc;
 }
+
 .borderTextDark {
   letter-spacing: 0.2rem;
-  color: rgb(229 231 235);
-  text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000,
-    1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-}
-.borderTextDark:hover {
-  color: #000;
-  -webkit-transition-duration: 1000ms;
-}
-.borderText:hover {
-  color: #ffff;
-  -webkit-transition-duration: 1000ms;
+  color: rgb(229, 231, 235);
+  text-shadow: 1px 1px 0 rgb(43, 43, 43), -1px -1px 0 rgb(43, 43, 43),
+    1px -1px 0 rgb(43, 43, 43), -1px 1px 0 rgb(43, 43, 43);
 }
 
 .bg {
@@ -30,8 +22,7 @@
   height: 200vh;
   z-index: 800;
   pointer-events: none;
-  background: transparent
-    url("/background.png") repeat 0 0;
+  background: transparent url("/background.png") repeat 0 0;
   background-repeat: repeat;
   visibility: visible;
 }
@@ -66,7 +57,7 @@
   h4,
   p,
   a,
-  label{
+  label {
     @apply text-black dark:text-white;
   }
   h1 {
@@ -75,10 +66,10 @@
   h2 {
     @apply text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl;
   }
-  h3{
+  h3 {
     @apply text-lg md:text-xl 2xl:text-2xl;
   }
-  .textGradient{
+  .textGradient {
     @apply font-main gradient1 dark:gradient1;
   }
   ::-webkit-scrollbar {
@@ -87,8 +78,11 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-gray3 dark:bg-gray4 rounded-full;
   }
-  .slugMargins{
-    @apply mx-5 md:mx-10 xl:mx-20
+  .globalMargins {
+    @apply mx-5 md:mx-10 xl:mx-20;
+  }
+  .globalSpacing {
+    @apply my-14 md:my-28;
   }
   .gradient1 {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-[#9D51E1] via-[#9B63A4] to-[#B86C7D];
@@ -97,13 +91,13 @@
     @apply rounded-md bg-gray5 dark:bg-black2 border border-gray3 dark:border-gray2;
   }
   input,
-  textarea{
-    @apply bg-transparent focus:outline-none dark:text-white text-black
+  textarea {
+    @apply bg-transparent focus:outline-none dark:text-white text-black;
   }
-  textarea{
-    @apply resize-none 
+  textarea {
+    @apply resize-none;
   }
-  .bg-opacity{
-    @apply opacity-50 dark:opacity-30
+  .bg-opacity {
+    @apply opacity-50 dark:opacity-30;
   }
 }

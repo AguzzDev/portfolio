@@ -46,15 +46,15 @@ export const Project = (props) => {
         <span className="text-xs pt-2">{projects}</span>
       </div>
 
-      <h5
+      <h2
         className={`${
-          hoveredIndex === i ? "text-gray2 dark:text-white" : null
+          hoveredIndex === i ? "text-gray2 dark:text-[#cccccc]" : null
         }  ${
           theme === "dark" ? "borderText" : "borderTextDark"
-        } opacity-90 group-hover:text-gray2 dark:group-hover:text-white font-mainBold font-extrabold text-3xl lg:text-5xl`}
+        } font-mainBold font-extrabold`}
       >
         {title}
-      </h5>
+      </h2>
 
       {image ? (
         <div className="lg:hidden flex space-x-5 pt-2 lg:pt-0 h-52">
@@ -83,7 +83,7 @@ export const Project = (props) => {
     <Link passHref key={i} href={slug} locale={router.locale}>
       <a
         ref={ref}
-        className={`my-20 md:my-0 lg:py-60 2xl:py-72 group overflow-hidden select-none cursor-pointer border-b border-gray4 dark:border-gray1`}
+        className={`py-36 lg:py-60 2xl:py-72 group overflow-hidden select-none cursor-pointer border-b border-gray4 dark:border-gray1`}
       >
         <motion.div
           key={i}

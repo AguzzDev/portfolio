@@ -25,7 +25,7 @@ export const OverviewComponent = ({ description, features, repo, website }) => {
   );
 
   return (
-    <section className="flex flex-col md:flex-row md:space-x-5 slugMargins mt-10">
+    <section className="flex flex-col md:flex-row md:space-x-5 globalMargins globalSpacing">
       <div className="flex flex-col md:w-3/4">
         <h2 className="textGradient font-bold mb-2">
           {t("common:overview-title")}
