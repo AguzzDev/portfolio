@@ -37,14 +37,11 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
           }}
           className={`${notMobileAndNextEither ? "col-span-2" : null} ${
             nextIsMobile ? "col-span-3" : null
+          } ${
+            isMobile ? "hidden sm:block" : ""
           } sm:cursor-pointer select-none relative h-[12rem] sm:h-[30rem] overflow-hidden`}
         >
-          <Image
-            layout="fill"
-            objectFit={isMobile ? "contain" : "contain"}
-            src={path}
-            alt={alt}
-          />
+          <Image layout="fill" objectFit="contain" src={path} alt={alt} />
         </motion.div>
 
         <ModalGalery
