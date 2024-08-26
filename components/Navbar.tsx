@@ -15,11 +15,13 @@ export const Navbar = () => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-    <nav className="sticky w-full top-0 z-10 bg-gray-200 dark:bg-black1 py-1">
+    <nav className="fixed w-full top-0 z-10 bg-white1 dark:bg-black1 py-1">
       <div
         className={`${
-          isSlugPath(router.pathname) ? "globalMargins" : ""
-        } flex items-center justify-between`}
+          !isSlugPath(router.pathname)
+            ? "mx-auto max-w-7xl globalMargins"
+            : "globalMarginsSlug"
+        } flex items-center justify-between `}
       >
         <div className="text-black1 dark:text-white1 fill-current">
           <Link passHref href="/">

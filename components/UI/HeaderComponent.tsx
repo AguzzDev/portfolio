@@ -25,7 +25,7 @@ const letterHeader = ({ text1, text2, style }: LetterHeaderProps) => {
   return (
     <motion.h1
       variants={letterAnimate}
-      className={`text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-mainBold ${style}`}
+      className={`text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-mainBold ${style}`}
     >
       {text1}
       {text2}
@@ -38,7 +38,7 @@ export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
 
   return (
     <section className="flex flex-col">
-      <div className="flex justify-center items-center mt-2 md:mt-12 h-[30vh]">
+      <div className="flex justify-center items-center h-[40vh] sm:h-[60vh]">
         <div className="flex justify-between">
           <motion.div
             className="flex"
@@ -59,7 +59,7 @@ export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
         </div>
       </div>
 
-      <div className="relative h-[25vh] sm:h-[50vh] md:h-screen mt-5">
+      <div className="relative h-[30vh] sm:h-screen mt-5">
         <Image
           src={img}
           layout="fill"

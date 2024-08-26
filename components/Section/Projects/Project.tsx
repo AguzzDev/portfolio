@@ -21,7 +21,7 @@ export const Project = (props) => {
 
   const { theme } = useTheme();
   const [ref, inView] = useInView({
-    threshold: hoveredIndex === 0 ? 1 : 0.85,
+    threshold: 1,
   });
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export const Project = (props) => {
         <span className="text-xs pt-2">{projects}</span>
       </div>
 
-      <h2
+      <h4
         className={`${
           hoveredIndex === i ? "text-gray2 dark:text-[#cccccc]" : null
         }  ${
@@ -54,7 +54,7 @@ export const Project = (props) => {
         } font-mainBold font-extrabold`}
       >
         {title}
-      </h2>
+      </h4>
 
       {image ? (
         <div className="lg:hidden flex space-x-5 pt-2 lg:pt-0 h-52">
@@ -83,7 +83,7 @@ export const Project = (props) => {
     <Link passHref key={i} href={slug} locale={router.locale}>
       <a
         ref={ref}
-        className={`py-36 lg:py-60 2xl:py-72 group overflow-hidden select-none cursor-pointer border-b border-gray4 dark:border-gray1`}
+        className={`py-16 sm:py-36 lg:py-60 2xl:py-72 group overflow-hidden select-none cursor-pointer border-b border-gray4 dark:border-gray1`}
       >
         <motion.div
           key={i}

@@ -12,7 +12,7 @@ module.exports = {
         main2: ["main2", "sans-serif"],
       },
       colors: {
-        white1: "#FCFCFC",
+        white1: "rgb(229 231 235)",
         white2: "#ededed",
         white3: "#e2e2e2",
         black1: "#141414",

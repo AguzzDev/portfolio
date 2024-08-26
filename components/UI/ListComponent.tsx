@@ -37,10 +37,14 @@ export const ListComponent = ({
     title,
     data,
     children,
-    last,
+    last = false,
   }: TableChildrenProps) => {
     return (
-      <div className={`${!last ? "border-b border-gray3" : null} md:border-0`}>
+      <div
+        className={`${
+          last ? "border-opacity-0" : "border-opacity-100"
+        } border-b border-gray3 md:border-0`}
+      >
         <h3 className="gradient1 dark:gradient1 font-bold border-0 md:border-b border-gray3">
           {title}
         </h3>
@@ -56,7 +60,7 @@ export const ListComponent = ({
   };
 
   return (
-    <section className="globalMargins globalSpacing">
+    <section className="globalMarginsSlug globalSpacing">
       <h2 className="textGradient font-bold">{t("common:details-title")}</h2>
 
       <div className="box1 p-3 md:px-5 md:py-10 mt-2">
@@ -64,7 +68,7 @@ export const ListComponent = ({
           <TableChildren title={t("common:technologys")} data={tec} />
           <TableChildren title={t("common:libraries")} data={lib} />
           <TableChildren title={t("common:year")} data={year} />
-          <TableChildren title={t("common:client")} data={client} />
+          <TableChildren title={t("common:client")} data={client} last={true} />
         </div>
       </div>
     </section>

@@ -25,9 +25,9 @@ export const OverviewComponent = ({ description, features, repo, website }) => {
   );
 
   return (
-    <section className="flex flex-col md:flex-row md:space-x-5 globalMargins globalSpacing">
+    <section className="flex flex-col md:flex-row md:space-x-5 globalMarginsSlug globalSpacing">
       <div className="flex flex-col md:w-3/4">
-        <h2 className="textGradient font-bold mb-2">
+        <h2 className="textGradient font-bold">
           {t("common:overview-title")}
         </h2>
         <p className="tracking-wide italic mt-1 pr-3">{t(description)}</p>
@@ -40,7 +40,7 @@ export const OverviewComponent = ({ description, features, repo, website }) => {
       </div>
 
       <div className="w-full">
-        <h2 className="textGradient font-bold mb-2 mt-5 md:mt-0">
+        <h2 className="textGradient font-bold mt-10 md:mt-0">
           {t("common:overview-title2")}
         </h2>
 

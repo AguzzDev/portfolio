@@ -40,7 +40,7 @@ export interface IconProps {
 //Layout
 export interface LayoutProps {
   children: JSX.Element | JSX.Element[];
-  title: string;
+  title?: string;
 }
 
 //Children

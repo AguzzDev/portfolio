@@ -37,7 +37,7 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
           }}
           className={`${notMobileAndNextEither ? "col-span-2" : null} ${
             nextIsMobile ? "col-span-3" : null
-          } cursor-pointer select-none relative h-[17rem] sm:h-[30rem] overflow-hidden`}
+          } sm:cursor-pointer select-none relative h-[12rem] sm:h-[30rem] overflow-hidden`}
         >
           <Image
             layout="fill"
@@ -58,7 +58,7 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
   };
 
   return (
-    <section className="globalMargins globalSpacing">
+    <section className="globalMarginsSlug globalSpacing">
       <h2 className="textGradient font-bold">{t("common:galery-title")}</h2>
       {imgs.length === 1 ? (
         <div

@@ -15,7 +15,7 @@ export const AboutMe = () => {
     });
   };
   return (
-    <section className="mt-5 md:mt-10 h-[70vh]">
+    <section className="mt-10 h-[67vh]">
       <div className="w-3/4">
         <p className="mb-2 text-lg sm:text-xl border-b border-black dark:border-white w-max">
           {t("common:aboutme-greeting")}

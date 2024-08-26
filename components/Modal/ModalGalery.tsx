@@ -10,7 +10,7 @@ export const ModalGalery = ({ isOpen, setIsOpen, img, alt }) => {
         <Dialog
           open={isOpen}
           onClose={() => setIsOpen(false)}
-          className="fixed z-50 inset-0 overflow-y-auto"
+          className="hidden sm:flex fixed z-50 inset-0"
         >
           <div className="grid place-content-center min-h-screen">
             <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />

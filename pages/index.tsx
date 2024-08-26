@@ -7,7 +7,7 @@ import { Contact } from "components/Section/Contact";
 
 const Home = ({ projects }) => {
   return (
-    <Layout title="Agustin Ribotta">
+    <Layout>
       <AboutMe />
       <Projects projects={JSON.parse(projects)} />
       <Contact />

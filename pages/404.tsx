@@ -7,7 +7,7 @@ const NoPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title="Agustin Ribotta">
+    <Layout>
       <div>
         <h2 className="text-white">{t("common:404")}</h2>
         <button>
