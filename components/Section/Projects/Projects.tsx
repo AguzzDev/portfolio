@@ -20,7 +20,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ amount: 0 }}
-        className="-translate-y-28 flex w-full lg:w-screen"
+        className="sm:-translate-y-28 flex w-full lg:w-screen"
       >
         <div className="flex flex-col w-full lg:w-2/4 xl:mb-52 mb-10">
           {projects.map((props, i) => (
