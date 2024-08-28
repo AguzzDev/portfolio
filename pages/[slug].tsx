@@ -77,7 +77,7 @@ const ProjectDetails = ({
           <MDXRemote components={MDXComponents} {...source} />
           <div
             id="buttons"
-            className="flex justify-between space-x-2 md:space-x-0 lg:space-x-3 h-[5rem] mx-auto my-5 md:my-10"
+            className="flex justify-between space-x-2 md:space-x-0 lg:space-x-3 h-[5rem] mx-auto md:my-10"
           >
             <Button
               icon={ChevronLeftIcon}

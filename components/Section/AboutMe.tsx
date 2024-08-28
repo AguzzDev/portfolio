@@ -27,7 +27,7 @@ export const AboutMe = () => {
           <span className="textGradient font-mainBold">
             {t("common:aboutme-greeting3")}
           </span>
-          {t("common:aboutme-greeting4")}
+          ,{t("common:aboutme-greeting4")}
         </h1>
 
         <button

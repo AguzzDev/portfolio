@@ -5,8 +5,12 @@ import { useRouter } from "next/router";
 import { Navbar } from "./Navbar";
 import { LayoutProps } from "types";
 import { isSlugPath } from "utils/isSlugPath";
+import { Footer } from "./Footer";
 
-export const Layout = ({ children, title="Portfolio of Agustin Ribotta" }: LayoutProps) => {
+export const Layout = ({
+  children,
+  title = "Portfolio of Agustin Ribotta",
+}: LayoutProps) => {
   const router = useRouter();
 
   return (
@@ -22,13 +26,12 @@ export const Layout = ({ children, title="Portfolio of Agustin Ribotta" }: Layou
           animate={{ y: 50, opacity: 1 }}
           transition={{ duration: 1.5 }}
           className={`${
-            isSlugPath(router.pathname)
-              ? ""
-              : "globalMargins mx-auto max-w-7xl"
-          } flex flex-col`}
+            isSlugPath(router.pathname) ? "" : "globalMargins mx-auto max-w-7xl"
+          } flex flex-col mb-20`}
         >
           {children}
         </motion.section>
+        <Footer />
       </main>
     </>
   );

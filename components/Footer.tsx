@@ -1,16 +1,14 @@
-import {
-  ArrowUpIcon,
-  ChevronUpIcon,
-  LinkIcon,
-  MailIcon,
-} from "@heroicons/react/outline";
+import { ArrowUpIcon, ChevronUpIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { IconSm } from "components/Icons";
 import useTranslation from "next-translate/useTranslation";
+import { isSlugPath } from "utils/isSlugPath";
+import { useRouter } from "next/router";
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const router = useRouter();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -38,8 +36,18 @@ export const Footer = () => {
   };
 
   return (
-    <section className="mt-5">
-      <div className="flex justify-center">
+    <section
+      className={`${
+        !isSlugPath(router.pathname)
+          ? "mx-auto max-w-7xl globalMargins "
+          : "globalMarginsSlug"
+      }`}
+    >
+      <div
+        className={`${
+          isSlugPath(router.pathname) ? "hidden" : "flex justify-center"
+        }`}
+      >
         <motion.button
           onClick={scrollToTop}
           initial={{ y: 5 }}

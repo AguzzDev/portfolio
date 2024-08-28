@@ -1,5 +1,4 @@
 import { Layout } from "components/Layout";
-import { Footer } from "components/Section/Footer";
 import { getAllFilesMetadata } from "lib/mdx";
 import { AboutMe } from "components/Section/AboutMe";
 import { Projects } from "components/Section/Projects/Projects";
@@ -11,7 +10,6 @@ const Home = ({ projects }) => {
       <AboutMe />
       <Projects projects={JSON.parse(projects)} />
       <Contact />
-      <Footer />
     </Layout>
   );
 };
