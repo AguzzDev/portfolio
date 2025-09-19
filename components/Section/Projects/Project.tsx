@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import pixelArtsData from "components/Pixelart/projects/data";
 
 export const PixelArtLoader = ({ name }: { name: string }) => {
-  const Component = dynamic(() => import(`../../Pixelart/projects/Base.tsx`), {
+  const Component = dynamic(() => import(`../../Pixelart/projects/Base`), {
     ssr: false,
   });
   const data = pixelArtsData[name];
