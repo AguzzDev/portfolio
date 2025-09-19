@@ -1,7 +1,5 @@
-import { motion, useAnimation } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
 import { ArrowRightIcon } from "@heroicons/react/outline";
-
 import { IconSm } from "components/Icons";
 
 export const AboutMe = () => {
@@ -15,8 +13,10 @@ export const AboutMe = () => {
     });
   };
   return (
-    <section className="mt-10 h-[67vh]">
-      <div className="w-3/4">
+    <section className="relative mt-20 h-[67vh] snap-none">
+      <div className="hidden sm:block goku absolute top-0 right-[45vw] xl:right-[35vw] 2xl:right-[25vw] sm:scale-[3] lg:scale-[5] z-10"></div>
+
+      <div className="w-3/4 sm:w-2/4 xl:w-3/4">
         <p className="mb-2 text-lg sm:text-xl border-b border-black dark:border-white w-max">
           {t("common:aboutme-greeting")}
         </p>

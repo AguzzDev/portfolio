@@ -51,7 +51,7 @@ export const ListComponent = ({
         <div
           className={`${
             !last ? "pb-1" : null
-          } grid grid-cols-2 md:flex md:flex-col md:pt-1`}
+          } grid grid-cols-2 md:flex md:flex-col md:pt-1 mb-10`}
         >
           {data ? <TableChildrenData data={data} title={title} /> : children}
         </div>

@@ -8,13 +8,16 @@ const NoPage = () => {
 
   return (
     <Layout>
-      <div>
+      <div className="mt-10">
         <h2 className="text-white">{t("common:404")}</h2>
-        <button>
-          <Link passHref href={"/"}>
-            {t("common:back")}
-          </Link>
-        </button>
+
+        <div className="flex items-end">
+          <button>
+            <Link passHref href={"/"}>
+              {t("common:back")}
+            </Link>
+          </button>
+        </div>
       </div>
     </Layout>
   );

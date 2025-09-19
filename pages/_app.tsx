@@ -1,4 +1,5 @@
 import "styles/globals.css";
+import "components/Pixelart/header/goku.scss";
 
 import { ThemeProvider } from "context/ThemeContext";
 import { AnimatePresence } from "types/AnimatePresence";

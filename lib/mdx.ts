@@ -5,7 +5,21 @@ import { serialize } from "next-mdx-remote/serialize";
 
 const root = process.cwd();
 
-export const getFiles = () => fs.readdirSync(path.join(root, "data"));
+export const getFiles = () => {
+  const files = fs.readdirSync(path.join(root, "data"));
+
+  return files
+    .map((file) => {
+      const mdxSource = fs.readFileSync(
+        path.join(root, "data", file),
+        "utf8"
+      );
+      const { data } = matter(mdxSource);
+      return { file, date: new Date(data.date) };
+    })
+    .sort((a, b) => (a.date > b.date ? -1 : 1))
+    .map((item) => item.file);
+};
 
 export const getFileBySlug = async (slug) => {
   const mdxSource = await fs.readFileSync(

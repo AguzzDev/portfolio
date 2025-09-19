@@ -19,19 +19,23 @@ export const Layout = ({
         <title>{title}</title>
       </Head>
 
-      <main>
+      <main className="flex flex-col min-h-screen">
         <Navbar />
+
         <motion.section
           initial={{ y: 0, opacity: 0 }}
           animate={{ y: 50, opacity: 1 }}
           transition={{ duration: 1.5 }}
           className={`${
             isSlugPath(router.pathname) ? "" : "globalMargins mx-auto max-w-7xl"
-          } flex flex-col mb-20`}
+          } flex flex-col w-full mb-20`}
         >
           {children}
         </motion.section>
-        <Footer />
+
+       <section className="flex flex-1 items-end">
+         <Footer />
+       </section>
       </main>
     </>
   );

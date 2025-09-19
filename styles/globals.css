@@ -1,15 +1,11 @@
 .borderText {
   letter-spacing: 0.2rem;
-  color: rgb(20, 20, 20);
-  text-shadow: 1px 1px 0 #cccccc, -1px -1px 0 #cccccc, 1px -1px 0 #cccccc,
-    -1px 1px 0 #cccccc;
+  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #cccc;
 }
 
 .borderTextDark {
   letter-spacing: 0.2rem;
-  color: rgb(229, 231, 235);
-  text-shadow: 1px 1px 0 rgb(43, 43, 43), -1px -1px 0 rgb(43, 43, 43),
-    1px -1px 0 rgb(43, 43, 43), -1px 1px 0 rgb(43, 43, 43);
+  text-shadow: 1px 1px 0 rgb(43, 43, 43), -1px -1px 0 rgb(43, 43, 43), 1px -1px 0 rgb(43, 43, 43), -1px 1px 0 rgb(43, 43, 43);
 }
 
 .bg {
@@ -69,8 +65,11 @@
   h3 {
     @apply text-lg md:text-xl 2xl:text-2xl;
   }
-  h4{
-    @apply text-3xl lg:text-5xl 2xl:text-6xl font-mainBold
+  h4 {
+    @apply text-3xl lg:text-5xl 2xl:text-6xl font-mainBold;
+  }
+  h5 {
+    @apply text-2xl sm:text-4xl 2xl:text-4xl font-mainBold;
   }
   .textGradient {
     @apply font-main gradient1 dark:gradient1;
@@ -82,13 +81,16 @@
     @apply bg-gray3 dark:bg-gray4 rounded-full;
   }
   .globalMargins {
-    @apply px-5 md:px-10 xl:px-0;
+    @apply px-5 md:px-10 2xl:px-0;
   }
   .globalMarginsSlug {
     @apply px-5 md:px-10 xl:px-20;
   }
   .globalSpacing {
     @apply my-10 xl:my-20;
+  }
+  .gradientBg1 {
+    @apply bg-gradient-to-r from-[#9D51E1] via-[#9B63A4] to-[#B86C7D];
   }
   .gradient1 {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-[#9D51E1] via-[#9B63A4] to-[#B86C7D];
@@ -102,6 +104,9 @@
   }
   textarea {
     @apply resize-none;
+  }
+  canvas {
+    @apply w-full h-full;
   }
   .bg-opacity {
     @apply opacity-50 dark:opacity-30;

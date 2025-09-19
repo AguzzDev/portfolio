@@ -37,7 +37,7 @@ export const Footer = () => {
 
   return (
     <section
-      className={`${
+      className={`w-full ${
         !isSlugPath(router.pathname)
           ? "mx-auto max-w-7xl globalMargins "
           : "globalMarginsSlug"

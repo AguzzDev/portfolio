@@ -16,10 +16,10 @@ export const OverviewComponent = ({ description, features, repo, website }) => {
     <Link href={href} passHref>
       <a
         target="_blank"
-        className="cursor-pointer group flex items-center justify-center space-x-3 w-2/4 py-3 dark:bg-gray1 bg-gray4 font-bold dark:text-white text-black rounded-md"
+        className="cursor-pointer group flex items-center justify-center space-x-3 w-2/4 py-3 dark:bg-gray1 bg-gray4 font-bold rounded-md hover:gradientBg1 "
       >
-        <IconXs Icon={LinkIcon} props="group-hover:text-[#9D51E1]" />
-        <p className="group-hover:gradient1">{title}</p>
+        <IconXs Icon={LinkIcon} props="dark:text-white text-black group-hover:text-white"/>
+        <p className="dark:text-white text-black group-hover:text-white">{title}</p>
       </a>
     </Link>
   );
@@ -27,12 +27,10 @@ export const OverviewComponent = ({ description, features, repo, website }) => {
   return (
     <section className="flex flex-col md:flex-row md:space-x-5 globalMarginsSlug globalSpacing">
       <div className="flex flex-col md:w-3/4">
-        <h2 className="textGradient font-bold">
-          {t("common:overview-title")}
-        </h2>
+        <h2 className="textGradient font-bold">{t("common:overview-title")}</h2>
         <p className="tracking-wide italic mt-1 pr-3">{t(description)}</p>
 
-        <div className="mt-5 md:mt-0 flex md:flex-col space-x-3 md:space-x-0 md:space-y-2 justify-end h-full">
+        <div className="mt-5 flex md:flex-col space-x-3 md:space-x-0 md:space-y-2 justify-end h-full">
           {website && <Button href={website} title="Ir a la Web" />}
 
           <Button href={repo} title="Ir al Repo" />
@@ -40,9 +38,7 @@ export const OverviewComponent = ({ description, features, repo, website }) => {
       </div>
 
       <div className="w-full">
-        <h2 className="textGradient font-bold mt-10 md:mt-0">
-          {t("common:overview-title2")}
-        </h2>
+        <h2 className="textGradient font-bold mt-10 md:mt-0">{t("common:overview-title2")}</h2>
 
         <ul className="flex flex-col space-y-2">
           {ulItems.map(({ title, value }, i) => (

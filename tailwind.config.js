@@ -1,8 +1,5 @@
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
@@ -25,7 +22,13 @@ module.exports = {
         blue1: "#0575e6",
         blue2: "#021B79",
       },
+      maxWidth: {
+        "7xl": "1350px",
+      },
+      screens: {
+        xs: "360px",
+      },
     },
   },
   plugins: [],
-}
+};

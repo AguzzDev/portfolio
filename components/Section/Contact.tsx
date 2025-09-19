@@ -1,6 +1,5 @@
-import emailjs from "@emailjs/browser";
 import { InputField } from "components/Input/InputField";
-import { Form, Formik, Field } from "formik";
+import { Form, Formik } from "formik";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import { FormValidate } from "utils/FormValidate";
@@ -18,7 +17,7 @@ export const Contact = () => {
   });
 
   return (
-    <section id="contact-section" className="w-full">
+    <section id="contact-section" className="sm:w-3/4 snap-none">
       <h2 className="textGradient">{t("common:contact-title")}</h2>
       <div className="my-4">
         <h3 className="tracking-tight">{t("common:contact-message")}</h3>

@@ -85,3 +85,28 @@ export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   as?: string;
   rows?: string;
 }
+
+type PixelArtKeys = "Chess" | "Quiz" | "Crunchyroll" | "Dashboard" | "Default" | "Discord" | "Disney" | "Ecommerce" | "Netflix" | "Paint" | "Planet" | "Poker" | "Sports" | "Twitter" | "Whatsapp";
+export interface PixelArtInterface {
+  frames: number[][] | number[][][];
+  colors: Record<number, string>;
+  duration?: number;
+  pixelSize?: number;
+  effect?: boolean;
+}
+export interface PixelArtDataItemsProps extends PixelArtInterface {
+  animation?: {
+    initial?: unknown;
+    animate?: unknown;
+    transition?: unknown;
+  };
+  styles?: string;
+}
+export interface PixelArtProps {
+  styles?: string;
+  canvas: PixelArtDataItemsProps[];
+}
+export type PixelArtDataProps = Record<PixelArtKeys, PixelArtProps>;
+export interface PixelArtRendererProps {
+  data: PixelArtProps;
+}
