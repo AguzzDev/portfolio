@@ -15,7 +15,7 @@ export const AboutMe = () => {
   };
 
   return (
-    <section className="flex flex-col h-[70vh] lg:h-screen snap-none relative pt-32 pb-10">
+    <section className="flex flex-col h-[80vh] lg:h-screen snap-none relative pt-32 pb-10">
       <div className="flex">
         <div className="w-3/4 sm:w-2/4 2xl:w-[60%]">
           <p className="mb-2 text-lg sm:text-xl border-b border-black dark:border-white w-max">{t("common:aboutme-greeting")}</p>

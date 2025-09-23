@@ -6,6 +6,7 @@ import { Fragment } from "react";
 import { ModalGalery } from "components/Modal/ModalGalery";
 import useTranslation from "next-translate/useTranslation";
 import { GaleryComponentProps } from "types";
+import { useMediaQuery } from "hooks/useMediaQuery";
 
 export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
     const nextIsMobile = i < imgs.length && imgs[i + 1]?.mobile === "true";
 
     const notMobileAndNextEither = !isMobile && !nextIsMobile;
+    const mediaQuery = useMediaQuery();
 
     return (
       <Fragment key={i}>
@@ -25,7 +27,7 @@ export const GaleryComponent = ({ imgs, alt }: GaleryComponentProps) => {
           viewport={{ amount: 0.35 }}
           transition={{ duration: 1 }}
           onClick={() => {
-            setIsOpen(true);
+            mediaQuery != "mobile" && setIsOpen(true);
           }}
           className={`${notMobileAndNextEither ? "col-span-2" : null} ${nextIsMobile ? "col-span-3" : null} ${
             isMobile ? "hidden lg:block" : ""
