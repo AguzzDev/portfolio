@@ -37,7 +37,7 @@ export const OverviewComponent = ({ description, features, repo, website }) => {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full mt-10 md:mt-0">
         <h2 className="textGradient font-bold mt-10 md:mt-0">{t("common:overview-title2")}</h2>
 
         <ul className="flex flex-col space-y-2">

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
@@ -13,7 +13,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
 
   const mediaQuery = useMediaQuery();
   const projectList = projects.map((props, i) => (
-    <div key={i} className="lg:snap-start lg:h-screen pt-10">
+    <div key={i} className="lg:snap-start lg:h-screen pb-20 sm:pb-10">
       <Project key={i} {...props} i={i} currentIndex={currentIndex} projects={projects.length} />
     </div>
   ));
@@ -60,7 +60,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
 
   return (
     <section>
-      <h2 className="textGradient">{t("common:project-title")}</h2>
+      <h2 className="textGradient pb-10 sm:pb-0">{t("common:project-title")}</h2>
 
       <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ amount: 0 }} className="mt-5 flex lg:w-screen">
         <div ref={listRef} className="scroll-snap-y scroll-snap-mandatory flex flex-col w-full lg:w-3/4 xl:mb-52 mb-10">
@@ -71,7 +71,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
           <div className="relative w-full h-2/4">
             <Image src={projects[currentIndex]?.image[1]} layout="fill" objectFit="cover" alt="project_img" className="z-50"/>
           
-          <div className="absolute top-2 right-2 bg-blue-300 w-full h-full gradientBg1"></div>
+          <div className="absolute top-2 right-2 w-full h-full gradientBg1"></div>
           </div>
         </div>
       </motion.section>

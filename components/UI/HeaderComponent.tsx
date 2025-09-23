@@ -23,10 +23,7 @@ const letterAnimate = {
 
 const letterHeader = ({ text1, text2, style }: LetterHeaderProps) => {
   return (
-    <motion.h1
-      variants={letterAnimate}
-      className={`text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-mainBold ${style}`}
-    >
+    <motion.h1 variants={letterAnimate} className={`text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-mainBold ${style}`}>
       {text1}
       {text2}
     </motion.h1>
@@ -38,14 +35,9 @@ export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
 
   return (
     <section className="flex flex-col">
-      <div className="flex justify-center items-center h-[40vh] sm:h-[60vh]">
+      <div className="flex justify-center items-center h-[40vh] sm:h-[50vh]">
         <div className="flex justify-between">
-          <motion.div
-            className="flex"
-            variants={letter}
-            initial="initial"
-            animate="animate"
-          >
+          <motion.div className="flex" variants={letter} initial="initial" animate="animate">
             <h1>
               {letterHeader({
                 text1: titleSplit[0],
@@ -59,14 +51,8 @@ export const HeaderComponent = ({ img, alt, title }: HeaderComponentProps) => {
         </div>
       </div>
 
-      <div className="relative h-[30vh] sm:h-screen mt-5">
-        <Image
-          src={img}
-          layout="fill"
-          alt={alt}
-          objectFit="cover"
-          className="h-full w-full"
-        />
+      <div className="relative h-[30vh] sm:h-[50vh] md:h-[60vh] lg:h-screen">
+        <Image src={img} layout="fill" alt={alt} objectFit="cover" />
       </div>
     </section>
   );

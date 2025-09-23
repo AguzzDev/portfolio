@@ -15,7 +15,7 @@ export const Navbar = () => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-    <nav className="fixed w-full top-0 z-10 bg-white1 dark:bg-black1 py-1">
+    <nav className="fixed w-full top-0 z-[999] bg-white1 dark:bg-black1 py-1">
       <div
         className={`${
           !isSlugPath(router.pathname)

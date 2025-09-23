@@ -1,7 +1,7 @@
 import { PixelArtProps } from "types";
 
 const data: PixelArtProps = {
-  styles: "",
+  styles: "translate-y-3 scale-[1.5]",
   canvas: [
     {
       colors: {
@@ -77,34 +77,6 @@ const data: PixelArtProps = {
         transition: { duration: 0.5, ease: "easeIn" },
       },
       pixelSize: 2,
-    },
-    {
-      colors: {
-        0: "transparent",
-        1: "black",
-        2: "#443028",
-        3: "#DFC4B9",
-        4: "#AF745D",
-        5: "#D48A19",
-        6: "#874B26",
-        7: "#EFAB42",
-        8: "#DDDDDD",
-        9: "#b7b7b7",
-        10: "#dd958b",
-        11: "#eda89e",
-      },
-      frames: [
-        [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      ],
-      animation: {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        transition: { duration: 0.5, ease: "easeIn" },
-      },
-      styles: "absolute -bottom-7 -left-6",
     },
   ],
 };

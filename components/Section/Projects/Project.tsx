@@ -17,36 +17,36 @@ export const PixelArtLoader = ({ name }: { name: string }) => {
 };
 
 export const Project = (props) => {
-  const { title, image: imageD, pixelArt, slug, i, currentIndex, projects } = props;
+  const { title, image: imageD, pixelArt, slug, i, projects } = props;
   const router = useRouter();
   const { theme } = useTheme();
 
   const Title = ({ i, title, image }: { i: number; title: string; image: string[] }) => (
     <>
-      <div className="flex space-x-5">
-        <div className="w-24 sm:w-32 xl:w-36 h-hull">
-          <div className="w-full h-[90%] sm:h-[93%] my-1">
+      <div className="flex space-x-3 sm:space-x-5">
+        <div className="w-20 sm:w-32 xl:w-36 flex items-center justify-center">
+          <div className="w-full h-[70%] sm:h-[93%]">
             <PixelArtLoader name={pixelArt || "Default"} />
           </div>
         </div>
 
-        <div className="flex flex-col flex-1">
-          <div className="flex text-gray2 dark:text-gray4 font-bold lg:pb-3">
-            <span className="text-xl sm:text-2xl">{i + 1 <= 9 ? `0${i + 1}` : `${i + 1}`}</span>
-            <span className="text-2xl px-1">/</span>
-            <span className="text-xs sm:text-base my-auto">{projects}</span>
+        <div className="flex flex-col flex-1 text-gray2 dark:text-gray4 ">
+          <div className="flex font-bold lg:pb-3">
+            <span className="text-base sm:text-2xl">{i + 1 <= 9 ? `0${i + 1}` : `${i + 1}`}</span>
+            <span className="text-xl sm:text-2xl px-1">/</span>
+            <span className="text-xs sm:text-base my-auto opacity-80">{projects}</span>
           </div>
 
-          <h5 className={`w-[90%] truncate text-gray2 dark:text-gray1 ${theme === "dark" ? "borderText" : "borderTextDark"} font-mainBold font-extrabold`}>{title}</h5>
+          <h5 className="w-[90%] truncate">{title}</h5>
         </div>
       </div>
 
       {image ? (
-        <div className="lg:hidden flex space-x-5 pt-2 lg:pt-0 h-40 sm:h-52">
-          <div className="w-full xs:w-2/4 lg:hidden relative">
+        <div className="lg:hidden flex space-x-5 pt-2 lg:pt-0 h-52 sm:h-72 md:h-80">
+          <div className="relative w-full h-full">
             <Image src={image[0]} layout="fill" objectFit="cover" alt="project_img" />
           </div>
-          <div className="hidden xs:flex xs:w-2/4 lg:hidden relative">
+          <div className="hidden md:flex relative w-full h-full">
             <Image src={image[1]} layout="fill" objectFit="cover" alt="project_img" />
           </div>
         </div>
@@ -55,17 +55,10 @@ export const Project = (props) => {
   );
 
   return (
-    <div className={`py-5 sm:py-20 lg:py-0 lg:h-screen flex items-center group select-none cursor-pointer`}>
+    <div className={`sm:py-20 lg:py-0 lg:h-full flex items-center group select-none cursor-pointer`}>
       <Link passHref key={i} href={slug} locale={router.locale}>
         <a className="w-full">
-          <motion.div
-            key={i}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            whileHover={{ x: 10 }}
-            viewport={{ amount: 0 }}
-            className="hidden lg:flex flex-col w-full"
-          >
+          <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} whileHover={{ x: 10 }} viewport={{ amount: 0 }} className="hidden lg:flex flex-col w-full">
             <Title i={i} title={title} image={imageD} />
           </motion.div>
 

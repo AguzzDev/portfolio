@@ -3,33 +3,41 @@ import { getFiles, getFileBySlug } from "lib/mdx";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import useTranslation from "next-translate/useTranslation";
 import { MDXRemote } from "next-mdx-remote";
-
 import { Layout } from "components/Layout";
 import MDXComponents from "components/mdx/MDXComponents";
 import { IconCustomSize, IconMd } from "components/Icons";
 import { ProjectDetailsProps } from "types";
+import Link from "next/link";
 
 const ProjectDetails = ({ source, frontmatter, nextProject, prevProject }: ProjectDetailsProps) => {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
 
   const Button = ({ icon, title, position, boolean }: { icon: React.FC; title: string; position: string; boolean: Boolean }) => {
+    const Component = ({ children }: { children: React.ReactNode }) => {
+      return boolean ? (
+        <Link href={boolean && position == "right" ? nextProject : prevProject}>
+          <a>{children}</a>
+        </Link>
+      ) : (
+        <div>{children}</div>
+      );
+    };
+
     return (
-      <>
-        <a href={boolean && position == "right" ? nextProject : prevProject}>
-          {position === "right" ? (
-            <button className={`flex space-x-2 sm:space-x-4 items-center pt-7 sm:pt-6 ${!boolean ? "opacity-50" : null}`}>
-              <p className="text-md sm:text-3xl text-black dark:text-white">{title}</p>
-              <IconCustomSize Icon={icon} props="w-5 sm:w-7" />
-            </button>
-          ) : (
-            <button className={`flex space-x-2 sm:space-x-4 items-center pb-3 sm:pb-5 ${!boolean ? "opacity-50" : null}`}>
-              <IconCustomSize Icon={icon} props="w-5 sm:w-7" />
-              <p className="text-md sm:text-3xl text-black dark:text-white">{title}</p>
-            </button>
-          )}
-        </a>
-      </>
+      <Component>
+        {position === "right" ? (
+          <div className={`flex space-x-2 sm:space-x-4 items-center pt-7 sm:pt-6 ${!boolean ? "opacity-50" : null}`}>
+            <p className="text-2xl sm:text-3xl text-black dark:text-white">{title}</p>
+            <IconCustomSize Icon={icon} props="w-5 sm:w-7" />
+          </div>
+        ) : (
+          <div className={`flex space-x-2 sm:space-x-4 items-center pb-3 sm:pb-5 ${!boolean ? "opacity-50" : null}`}>
+            <IconCustomSize Icon={icon} props="w-5 sm:w-7" />
+            <p className="text-2xl sm:text-3xl text-black dark:text-white">{title}</p>
+          </div>
+        )}
+      </Component>
     );
   };
 

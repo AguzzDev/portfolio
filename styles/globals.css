@@ -1,11 +1,5 @@
-.borderText {
-  letter-spacing: 0.2rem;
-  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #cccc;
-}
-
-.borderTextDark {
-  letter-spacing: 0.2rem;
-  text-shadow: 1px 1px 0 rgb(43, 43, 43), -1px -1px 0 rgb(43, 43, 43), 1px -1px 0 rgb(43, 43, 43), -1px 1px 0 rgb(43, 43, 43);
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .bg {
@@ -60,7 +54,7 @@
     @apply text-4xl lg:text-6xl 2xl:text-7xl font-mainBold;
   }
   h2 {
-    @apply text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl;
+    @apply text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl;
   }
   h3 {
     @apply text-lg md:text-xl 2xl:text-2xl;
@@ -69,7 +63,7 @@
     @apply text-3xl lg:text-5xl 2xl:text-6xl font-mainBold;
   }
   h5 {
-    @apply text-2xl sm:text-4xl 2xl:text-4xl font-mainBold;
+    @apply text-2xl sm:text-4xl font-main font-extrabold;
   }
   .textGradient {
     @apply font-main gradient1 dark:gradient1;

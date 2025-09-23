@@ -1,7 +1,7 @@
 import { PixelArtProps } from "types";
 
 const data: PixelArtProps = {
-  styles:"scale-[1.65]",
+  styles:"scale-[1.4] sm:scale-[1.65]",
   canvas: [
     {
       colors: {

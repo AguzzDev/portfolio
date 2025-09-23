@@ -31,7 +31,7 @@ const Base = ({ data }: PixelArtRendererProps) => {
           }}
           className={item.styles}
           initial={item.animation?.initial}
-          animate={item.animation?.animate}
+          whileInView={item.animation?.animate}
           transition={item.animation?.transition}
           whileHover={item.animation?.animate}
         />
