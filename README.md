@@ -1,9 +1,9 @@
 # **Portfolio**
 
-![](./screenshots/1.PNG)
+![](./screenshots/1.png)
 
-![](./screenshots/2.PNG)
+![](./screenshots/2.png)
 
-![](./screenshots/3.PNG)
+![](./screenshots/3.png)
 
-*AguzzDev*
+_AguzzDev_
