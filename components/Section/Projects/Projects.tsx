@@ -69,9 +69,11 @@ export const Projects = ({ projects }: ProjectsProps) => {
 
         <div className="hidden lg:flex flex-col justify-center lg:w-[70vw] h-screen sticky top-0 right-0">
           <div className="relative w-full h-2/4">
-            <Image src={projects[currentIndex]?.image[1]} layout="fill" objectFit="cover" alt="project_img" className="z-50"/>
-          
-          <div className="absolute top-2 right-2 w-full h-full gradientBg1"></div>
+            <Image src={projects[currentIndex]?.image[1]} layout="fill" objectFit="cover" alt="project_img" className="z-50" />
+
+            <div className="absolute top-2 right-2 w-full h-full gradientBg1 flex justify-center items-center">
+              <div className="h-[94%] w-[97%] bg-white1 dark:bg-black1"></div>
+            </div>
           </div>
         </div>
       </motion.section>
